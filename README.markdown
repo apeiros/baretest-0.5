@@ -1,7 +1,8 @@
-= BareTest
+BareTest
+========
 
 
-
-== Summary
+Summary
+-------
 
 The comfortable test framework.
