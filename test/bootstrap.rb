@@ -1,6 +1,8 @@
+# Encoding: utf-8
+#
 # To run the bootstrap, change to the project root of baretest and then execute:
 #   ruby test/bootstrap.rb
-
+#
 # ABOUT THIS FILE
 # bootstrap.rb runs the bootstrap tests for baretest.
 
@@ -27,17 +29,43 @@ begin
   raise "Directory 'lib' is missing - are you running bootstrap from the project root?" unless File.directory?(Bootstrap[:lib])
   raise "Directory 'test' is missing - are you running bootstrap from the project root?" unless File.directory?(Bootstrap[:test])
   raise "Directory 'test/bootstrap' is missing - are you running bootstrap from the project root?" unless File.directory?(Bootstrap[:bootstrap])
-  
+
+  # define some primitive assertions
+  def assert(value, message=nil)
+    raise(message || "Assertion failed") unless value
+  end
+  def assert_same(expected, actual, message=nil)
+    raise(message || "Expected #{expected.inspect} and #{actual.inspect} to be identical") unless expected.equal?(actual)
+  end
+  def assert_equal(expected, actual, message=nil)
+    raise(message || "Expected #{expected.inspect} and #{actual.inspect} to be equal") unless expected == actual
+  end
+  def assert_match(expected, actual, message=nil)
+    raise(message || "Expected #{expected.inspect} to match #{actual.inspect}") unless expected =~ actual
+  end
+  def assert_raises(message)
+    yield
+  rescue
+    # ok
+  else
+    raise(message || "Expected the codeblock to raise")
+  end
+
+  $stdout.sync = true
   # perform the bootstrapping
   %w[
-    exercise
+    baretest/status
+    baretest/phase
+    baretest/phase/exercise
   ].each do |current|
     section = current
-    puts "Bootstrapping #{section}"
+    print "Bootstrapping #{section}…"
     load(File.join(Bootstrap[:bootstrap], section+".rb"))
+    printf "\r\e[42m %-78s \e[0m\n", "Bootstrapped section #{section}"
   end
 
 rescue Exception => e
+  puts
   printf "\e[1;41m %-78s \e[0m\n", "BOOTSTRAPPING FAILED (section #{section})"
   puts "#{e.class}:#{e}", *e.backtrace
   exit 1 # enable automated use

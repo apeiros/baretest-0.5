@@ -1,2 +1,0 @@
-require 'baretest/phase/exercise'
-
