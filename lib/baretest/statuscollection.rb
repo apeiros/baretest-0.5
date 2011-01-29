@@ -1,5 +1,19 @@
+# Encoding: utf-8
+
+#--
+# Copyright 2009-2011 by Stefan Rusterholz.
+# All rights reserved.
+# See LICENSE.txt for permissions.
+#++
+
+
+
 module BareTest
 
+  # @author Stefan Rusterholz <contact@apeiros.me>
+  # @since  0.5.0
+  # @topic  Status, Test
+  #
   # A StatusCollection keeps track of the amount of different states and the
   # most prevalent status code (see {BareTest::Status::Codes} for the prevalence
   # order).
