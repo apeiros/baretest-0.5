@@ -55,7 +55,7 @@ begin
   # perform the bootstrapping
   %w[
     baretest/status
-    baretest/status_collection
+    baretest/statuscollection
     baretest/phase
     baretest/phase/exercise
   ].each do |current|
