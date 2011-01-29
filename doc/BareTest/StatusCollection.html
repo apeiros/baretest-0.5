@@ -91,7 +91,41 @@ prevalence order).
   </div>
 </div>
 <div class="tags">
+  <h3>Author:</h3>
+<ul class="author">
   
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Stefan Rusterholz <contact@apeiros.me>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div>
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -298,19 +332,36 @@ A new instance of StatusCollection
   </div>
 </div>
 <div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
   
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-11
-12
-13</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span>
   <span class='ivar'>@count</span>  <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
@@ -364,6 +415,23 @@ The status identifier, see BareTest::Status.
     </li>
   
 </ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -371,12 +439,12 @@ The status identifier, see BareTest::Status.
       <pre class="lines">
 
 
-9
-10
-11</pre>
+23
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id count'>count</span>
   <span class='ivar'>@count</span>
@@ -428,6 +496,23 @@ to be added to this collection
     </li>
   
 </ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -435,12 +520,12 @@ to be added to this collection
       <pre class="lines">
 
 
-27
-28
-29</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id status'>status</span><span class='rparen'>)</span>
   <span class='ivar'>@count</span><span class='lbracket'>[</span><span class='id status'>status</span><span class='period'>.</span><span class='id code'>code</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
@@ -467,19 +552,36 @@ to be added to this collection
   </div>
 </div>
 <div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
   
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id code'>code</span>
   <span class='const'>BareTest</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>Codes</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id status'>status</span><span class='op'>|</span> <span class='ivar'>@count</span><span class='lbracket'>[</span><span class='id status'>status</span><span class='rbracket'>]</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='rbrace'>}</span>
@@ -516,6 +618,23 @@ to be added to this collection
     </li>
   
 </ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -523,16 +642,16 @@ to be added to this collection
       <pre class="lines">
 
 
-52
-53
-54
-55
-56
-57
-58</pre>
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 66</span>
 
 <span class='kw'>def</span> <span class='id inspect'>inspect</span>
   <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:0x%x code=%p %s&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
@@ -604,6 +723,23 @@ self
     </li>
   
 </ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -611,15 +747,15 @@ self
       <pre class="lines">
 
 
-19
-20
-21
-22
-23
-24</pre>
+33
+34
+35
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id update'>update</span><span class='lparen'>(</span><span class='id status_collection'>status_collection</span><span class='rparen'>)</span>
   <span class='ivar'>@count</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='id status_collection'>status_collection</span><span class='period'>.</span><span class='id count'>count</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id my_value'>my_value</span><span class='comma'>,</span> <span class='id other_value'>other_value</span><span class='op'>|</span>
@@ -681,6 +817,23 @@ The values for which codes to return
     </li>
   
 </ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 
 </div><table class="source_code">
   <tr>
@@ -688,12 +841,12 @@ The values for which codes to return
       <pre class="lines">
 
 
-41
-42
-43</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id codes'>codes</span><span class='rparen'>)</span>
   <span class='ivar'>@count</span><span class='period'>.</span><span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id codes'>codes</span><span class='rparen'>)</span>
@@ -708,7 +861,7 @@ The values for which codes to return
 </div>
     
     <div id="footer">
-  Generated on Sat Jan 29 13:50:48 2011 by 
+  Generated on Sat Jan 29 19:29:07 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>
