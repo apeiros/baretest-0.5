@@ -119,11 +119,11 @@ module BareTest
       message = exception && exception.message
       case @code
         when :success
-          sprintf "#<%s:0x%08x code=%p phase=%p>", *values
+          sprintf "#<%s:0x%x code=%p phase=%p>", *values
         when :exception
-          sprintf "#<%s:0x%08x code=%p phase=%p reason=%p exception=%p>", *values, reason, message
+          sprintf "#<%s:0x%x code=%p phase=%p reason=%p exception=%p>", *values, reason, message
         else
-          sprintf "#<%s:0x%08x code=%p phase=%p reason=%p>", *values, reason
+          sprintf "#<%s:0x%x code=%p phase=%p reason=%p>", *values, reason
       end
     end
   end
