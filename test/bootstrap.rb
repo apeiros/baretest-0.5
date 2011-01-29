@@ -7,6 +7,7 @@
 # bootstrap.rb runs the bootstrap tests for baretest.
 
 section = "__initialize__"
+start   = Time.now
 
 begin
   Bootstrap = {}
@@ -16,6 +17,8 @@ begin
   Bootstrap[:bootstrap] = File.expand_path(File.join(Bootstrap[:base], 'test', 'bootstrap'))
 
   $LOAD_PATH.unshift(Bootstrap[:lib])
+
+  require 'simplecov'
 
   # sanity check: ruby version
   section = "__sanity_check_ruby_version__"
@@ -51,26 +54,39 @@ begin
     raise(message || "Expected the codeblock to raise")
   end
 
-  $stdout.sync = true
   # perform the bootstrapping
-  %w[
-    baretest/status
-    baretest/statuscollection
-    baretest/phase
-    baretest/phase/exercise
-  ].each do |current|
-    section = current
-    print "Bootstrapping #{section}…"
-    load(File.join(Bootstrap[:bootstrap], section+".rb"))
-    printf "\r\e[42m %-78s \e[0m\n", "Bootstrapped section #{section}"
+  $stdout.sync = true
+  rescued      = nil
+  SimpleCov.start do
+    add_filter "./test/"
+
+    begin
+      %w[
+        baretest/status
+        baretest/statuscollection
+        baretest/phase
+        baretest/phase/exercise
+      ].each do |current|
+        section = current
+        print "Bootstrapping #{section}…"
+        load(File.join(Bootstrap[:bootstrap], section+".rb"))
+        printf "\r\e[42m %-78s \e[0m\n", "Bootstrapped section #{section}"
+      end
+    rescue Exception => e
+      rescued = e
+    end
   end
+
+  raise rescued if rescued
 
 rescue Exception => e
   puts
   printf "\e[1;41m %-78s \e[0m\n", "BOOTSTRAPPING FAILED (section #{section})"
+  printf "Time elapsed: %.1fs\n", (Time.now-start)
   puts "#{e.class}:#{e}", *e.backtrace
   exit 1 # enable automated use
 else
   printf "\e[1;42m %-78s \e[0m\n", "BOOTSTRAPPING SUCCESSFUL"
+  printf "Time elapsed: %.1fs\n", (Time.now-start)
   exit 0 # normal, but let's be explicit
 end
