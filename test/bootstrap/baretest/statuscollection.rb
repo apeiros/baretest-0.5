@@ -1,4 +1,4 @@
-require 'baretest/status_collection'
+require 'baretest/statuscollection'
 
 # An empty collection has no status code
 collection = BareTest::StatusCollection.new
