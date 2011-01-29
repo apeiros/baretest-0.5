@@ -81,7 +81,53 @@
 </dl>
 <div class="clear"></div>
 
-<div id="subclasses">
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Baseclass that encapsulates the single phases in a test. A test consists of
+the four phases setup, exercise, verify and teardown.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Author:</h3>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Stefan Rusterholz <contact@apeiros.me>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="Phase/Exercise.html" title="BareTest::Phase::Exercise (class)">Exercise</a></span></p>
 </div>
@@ -97,6 +143,65 @@
 </p>
 
 
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_codeblock-instance_method" title="#execute_codeblock (instance method)">- (Object) <strong>execute_codeblock</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute execute_codeblock.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_codeblock-instance_method" title="#user_codeblock (instance method)">- (Object) <strong>user_codeblock</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute user_codeblock.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
 
   
     <h2>
@@ -109,7 +214,75 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#execute-instance_method" title="#execute (instance method)">- (Object) <strong>execute</strong> </a>
+      <a href="#execute-instance_method" title="#execute (instance method)">- (Object) <strong>execute</strong>(test) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Phase) <strong>initialize</strong>(&amp;codeblock) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of Phase.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#phase-instance_method" title="#phase (instance method)">- (Object) <strong>phase</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#user_codesource-instance_method" title="#user_codesource (instance method)">- (Object) <strong>user_codesource</strong> </a>
     
 
     
@@ -130,6 +303,191 @@
     </ul>
   
 
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="BareTest::Phase (class)">Phase</a></span></tt>) <strong>initialize</strong>(&amp;codeblock) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of Phase
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id codeblock'>codeblock</span><span class='rparen'>)</span>
+  <span class='ivar'>@user_codeblock</span>    <span class='op'>=</span> <span class='id codeblock'>codeblock</span>
+  <span class='ivar'>@execute_codeblock</span> <span class='op'>=</span> <span class='id codeblock'>codeblock</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="execute_codeblock-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="execute_codeblock-instance_method">
+  
+    - (<tt>Object</tt>) <strong>execute_codeblock</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute execute_codeblock
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id execute_codeblock'>execute_codeblock</span>
+  <span class='ivar'>@execute_codeblock</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="user_codeblock-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="user_codeblock-instance_method">
+  
+    - (<tt>Object</tt>) <strong>user_codeblock</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute user_codeblock
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id user_codeblock'>user_codeblock</span>
+  <span class='ivar'>@user_codeblock</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -139,23 +497,177 @@
       <div class="method_details first">
   <p class="signature first" id="execute-instance_method">
   
-    - (<tt>Object</tt>) <strong>execute</strong> 
+    - (<tt>Object</tt>) <strong>execute</strong>(test) 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+        <span class='type'>(<tt>Pending</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-3
-4</pre>
+39
+40
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 3</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 39</span>
 
-<span class='kw'>def</span> <span class='id execute'>execute</span>
+<span class='kw'>def</span> <span class='id execute'>execute</span><span class='lparen'>(</span><span class='id test'>test</span><span class='rparen'>)</span>
+  <span class='id raise'>raise</span> <span class='const'>Pending</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='id phase'>phase</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No code provided</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@code</span> <span class='comment'># no code? that means pending
+</span>
+  <span class='id context'>context</span> <span class='op'>=</span> <span class='id test'>test</span><span class='period'>.</span><span class='id context'>context</span>
+  <span class='id context'>context</span><span class='period'>.</span><span class='id __phase__'>__phase__</span> <span class='op'>=</span> <span class='id phase'>phase</span>
+  <span class='id context'>context</span><span class='period'>.</span><span class='id instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='ivar'>@code</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="phase-instance_method">
+  
+    - (<tt>Object</tt>) <strong>phase</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id phase'>phase</span>
+  <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Your Phase subclass </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='period'>.</span><span class='id to_s'>to_s</span><span class='rbrace'>}</span><span class='tstring_content'> must override #phase.</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="user_codesource-instance_method">
+  
+    - (<tt>Object</tt>) <strong>user_codesource</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/phase.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id user_codesource'>user_codesource</span>
+  <span class='const'>CodeBlock</span><span class='period'>.</span><span class='id baretest'>baretest</span><span class='lparen'>(</span><span class='ivar'>@user_codeblock</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -167,7 +679,7 @@
 </div>
     
     <div id="footer">
-  Generated on Fri Jan 28 22:22:29 2011 by 
+  Generated on Sat Jan 29 01:47:07 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>

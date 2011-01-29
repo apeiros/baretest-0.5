@@ -429,7 +429,7 @@ Detailed reason for the status.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Status) <strong>initialize</strong>(entity, code, phase, reason = nil, exception = nil) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Status) <strong>initialize</strong>(entity, code, phase = :cleanup, reason = nil, exception = nil) </a>
     
 
     
@@ -482,7 +482,7 @@ A new instance of Status.
     <div class="method_details first">
   <p class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="BareTest::Status (class)">Status</a></span></tt>) <strong>initialize</strong>(entity, code, phase, reason = nil, exception = nil) 
+    - (<tt><span class='object_link'><a href="" title="BareTest::Status (class)">Status</a></span></tt>) <strong>initialize</strong>(entity, code, phase = :cleanup, reason = nil, exception = nil) 
   
 
   
@@ -541,12 +541,14 @@ The status code, one of the keys in <span class='object_link'><a href="#Codes-co
         <span class='name'>phase</span>
       
       
+        <em class="default">(defaults to: <tt>:cleanup</tt>)</em>
+      
       
         &mdash;
         <div class='inline'><p>
 The phase name at which the status was determined. Success will usually
 have the phase :cleanup, skipped usually :setup and the others :execution,
-:verification or :teardown.
+:verify or :teardown.
 </p>
 </div>
       
@@ -615,22 +617,24 @@ The exception that cased the exception status in case of :exception
       <pre class="lines">
 
 
-103
-104
 105
 106
 107
 108
-109</pre>
+109
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 105</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id entity'>entity</span><span class='comma'>,</span> <span class='id code'>code</span><span class='comma'>,</span> <span class='id phase'>phase</span><span class='comma'>,</span> <span class='id reason'>reason</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id exception'>exception</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id entity'>entity</span><span class='comma'>,</span> <span class='id code'>code</span><span class='comma'>,</span> <span class='id phase'>phase</span><span class='op'>=</span><span class='symbol'>:cleanup</span><span class='comma'>,</span> <span class='id reason'>reason</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id exception'>exception</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id reason'>reason</span>   <span class='op'>||=</span> <span class='id exception'>exception</span> <span class='op'>&amp;&amp;</span> <span class='id exception'>exception</span><span class='period'>.</span><span class='id message'>message</span>
   <span class='ivar'>@entity</span>    <span class='op'>=</span> <span class='id entity'>entity</span>
   <span class='ivar'>@code</span>      <span class='op'>=</span> <span class='id code'>code</span>
   <span class='ivar'>@phase</span>     <span class='op'>=</span> <span class='id phase'>phase</span>
-  <span class='ivar'>@reason</span>    <span class='op'>=</span> <span class='id reason'>reason</span>
+  <span class='ivar'>@reason</span>    <span class='op'>=</span> <span class='id reason'>reason</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id reason'>reason</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id reason'>reason</span>
   <span class='ivar'>@exception</span> <span class='op'>=</span> <span class='id exception'>exception</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -706,12 +710,12 @@ The status identifier, one of :
       <pre class="lines">
 
 
-79
-80
-81</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id code'>code</span>
   <span class='ivar'>@code</span>
@@ -784,12 +788,12 @@ The phase, test, suite or run this status belongs to
       <pre class="lines">
 
 
-71
-72
-73</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 71</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id entity'>entity</span>
   <span class='ivar'>@entity</span>
@@ -864,12 +868,12 @@ caused the exception status.
       <pre class="lines">
 
 
-89
-90
-91</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id exception'>exception</span>
   <span class='ivar'>@exception</span>
@@ -942,12 +946,12 @@ The phase  execute context.
       <pre class="lines">
 
 
-75
-76
-77</pre>
+77
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id phase'>phase</span>
   <span class='ivar'>@phase</span>
@@ -1020,12 +1024,12 @@ Detailed reason for the status. Success usually has no reason.
       <pre class="lines">
 
 
-84
-85
-86</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id reason'>reason</span>
   <span class='ivar'>@reason</span>
@@ -1093,9 +1097,6 @@ Detailed reason for the status. Success usually has no reason.
       <pre class="lines">
 
 
-113
-114
-115
 116
 117
 118
@@ -1103,21 +1104,28 @@ Detailed reason for the status. Success usually has no reason.
 120
 121
 122
-123</pre>
+123
+124
+125
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 116</span>
 
 <span class='kw'>def</span> <span class='id inspect'>inspect</span>
-  <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:0x%08x status=%p phase=%p exception=%p skip_reason=%p failure_reason=%p entity=%p&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span>
-    <span class='id object_id'>object_id</span><span class='op'>&gt;&gt;</span><span class='int'>1</span><span class='comma'>,</span>
-    <span class='ivar'>@code</span><span class='comma'>,</span>
-    <span class='ivar'>@phase</span><span class='comma'>,</span>
-    <span class='ivar'>@exception</span><span class='comma'>,</span>
-    <span class='ivar'>@skip_reason</span><span class='comma'>,</span>
-    <span class='ivar'>@failure_reason</span><span class='comma'>,</span>
-    <span class='ivar'>@entity</span>
+  <span class='id values'>values</span>  <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='id object_id'>object_id</span><span class='op'>&gt;&gt;</span><span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@code</span><span class='comma'>,</span> <span class='ivar'>@phase</span><span class='rbracket'>]</span>
+  <span class='id reason'>reason</span>  <span class='op'>=</span> <span class='ivar'>@reason</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@reason</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id tr'>tr</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(.{20}).+</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\\1…</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id message'>message</span> <span class='op'>=</span> <span class='id exception'>exception</span> <span class='op'>&amp;&amp;</span> <span class='id exception'>exception</span><span class='period'>.</span><span class='id message'>message</span>
+  <span class='kw'>case</span> <span class='ivar'>@code</span>
+    <span class='kw'>when</span> <span class='symbol'>:success</span>
+      <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:0x%08x code=%p phase=%p&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id values'>values</span>
+    <span class='kw'>when</span> <span class='symbol'>:exception</span>
+      <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:0x%08x code=%p phase=%p reason=%p exception=%p&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id values'>values</span><span class='comma'>,</span> <span class='id reason'>reason</span><span class='comma'>,</span> <span class='id message'>message</span>
+    <span class='kw'>else</span>
+      <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:0x%08x code=%p phase=%p reason=%p&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>*</span><span class='id values'>values</span><span class='comma'>,</span> <span class='id reason'>reason</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1129,7 +1137,7 @@ Detailed reason for the status. Success usually has no reason.
 </div>
     
     <div id="footer">
-  Generated on Fri Jan 28 22:22:30 2011 by 
+  Generated on Sat Jan 29 01:47:07 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>

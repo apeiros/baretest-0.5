@@ -1,0 +1,1440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta name="Content-Type" content="text/html; charset=utf-8" />
+<title>Class: BareTest::CodeSource</title>
+<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (C)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../BareTest.html" title="BareTest (module)">BareTest</a></span></span>
+     &raquo; 
+    <span class="title">CodeSource</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  <a id="class_list_link" href="#">Class List</a>
+  <a id="method_list_link" href="#">Method List</a>
+  <a id ="file_list_link" href="#">File List</a>
+</div>
+
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: BareTest::CodeSource
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">BareTest::CodeSource</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/baretest/codesource.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+A class to present source code on a terminal. It provides utilities to
+extract the source straight from a proc instance.
+</p>
+<p>
+IMPORTANT: The class currently depends on proper indentation.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <h3>See Also:</h3>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#from-class_method" title="BareTest::CodeSource.from (method)">from</a></span></li>
+    
+  </ul>
+<h3>Author:</h3>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Stefan Rusterholz <contact@apeiros.me>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DefaultOptions-constant" class="">DefaultOptions =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+The defaults for CodeSource#initialize&#8217; options argument
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:highlight</span>          <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='symbol'>:header</span>             <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  | Code of %s:%d\n  |\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:template</span>           <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  | \e[1m%0*d\e[0m   %s\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:highlight_template</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  | \e[1m%0*d\e[0m   \e[43m%-80s\e[0m\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='comment'># or 46?
+</span>  <span class='symbol'>:footer</span>             <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:line_numbers</span>       <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#code-instance_method" title="#code (instance method)">- (String) <strong>code</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The code.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file-instance_method" title="#file (instance method)">- (String) <strong>file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The name of the file from which the code is.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options-instance_method" title="#options (instance method)">- (Hash) <strong>options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The set of options chosen to display this source code.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#starting_line-instance_method" title="#starting_line (instance method)">- (String) <strong>starting_line</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The starting line number from which the code is.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from-class_method" title="from (class method)">+ (nil, SourceCode) <strong>from</strong>(proc_instance, highlight = nil, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns nil if the source code could not be extracted, otherwise it returns
+a source code instance with all code that is indented at least as much as
+the first line to extract.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#source_from_file_and_line-class_method" title="source_from_file_and_line (class method)">+ (String) <strong>source_from_file_and_line</strong>(file, from_line = 1) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the code that is indented at least as much as the first line to
+extract.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (CodeSource) <strong>initialize</strong>(code, file_name, starting_line = 1, options = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+A new instance of CodeSource.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (String) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#options%21-instance_method" title="#options! (instance method)">- (Object) <strong>options!</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Update the options.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (String) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Presents the code as specified by the options.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="BareTest::CodeSource (class)">CodeSource</a></span></tt>) <strong>initialize</strong>(code, file_name, starting_line = 1, options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+A new instance of CodeSource
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>code</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The source code to display
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <span class='name'>file_name</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The file name to display as the source of the code
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+        <span class='name'>starting_line</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+From which line on in the file the source starts
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='type'>(<tt>nil</tt>, <tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Options to customize the presentation of the source code see
+<span class='object_link'><a href="#DefaultOptions-constant" title="BareTest::CodeSource::DefaultOptions (constant)">DefaultOptions</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id code'>code</span><span class='comma'>,</span> <span class='id file_name'>file_name</span><span class='comma'>,</span> <span class='id starting_line'>starting_line</span><span class='op'>=</span><span class='int'>1</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='ivar'>@code</span>          <span class='op'>=</span> <span class='id code'>code</span>
+  <span class='ivar'>@file</span>          <span class='op'>=</span> <span class='id file_name'>file_name</span>
+  <span class='ivar'>@starting_line</span> <span class='op'>=</span> <span class='id starting_line'>starting_line</span>
+  <span class='ivar'>@options</span>       <span class='op'>=</span> <span class='const'>DefaultOptions</span>
+  <span class='id options!'>options!</span><span class='lparen'>(</span><span class='id options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="code-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="code-instance_method">
+  
+    - (<tt>String</tt>) <strong>code</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The code
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The code
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id code'>code</span>
+  <span class='ivar'>@code</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="file-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="file-instance_method">
+  
+    - (<tt>String</tt>) <strong>file</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The name of the file from which the code is
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The name of the file from which the code is
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id file'>file</span>
+  <span class='ivar'>@file</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="options-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="options-instance_method">
+  
+    - (<tt>Hash</tt>) <strong>options</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The set of options chosen to display this source code. Warning, this hash
+is always frozen. @see #options! @see DefaultOptions
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The set of options chosen to display this source code. Warning, this hash
+is always frozen. @see #options! @see DefaultOptions
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id options'>options</span>
+  <span class='ivar'>@options</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="starting_line-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="starting_line-instance_method">
+  
+    - (<tt>String</tt>) <strong>starting_line</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+The starting line number from which the code is
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The starting line number from which the code is
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id starting_line'>starting_line</span>
+  <span class='ivar'>@starting_line</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="from-class_method">
+  
+    + (<tt>nil</tt>, <tt>SourceCode</tt>) <strong>from</strong>(proc_instance, highlight = nil, opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns nil if the source code could not be extracted, otherwise it returns
+a source code instance with all code that is indented at least as much as
+the first line to extract.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>Proc</tt>)</span>
+      
+      
+        <span class='name'>proc_instance</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+A proc instance to extract the code of
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>nil</tt>, <tt>SourceCode</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Returns nil if the source code could not be extracted, otherwise it returns
+a source code instance with all code that is indented at least as much as
+the first line to extract.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id from'>from</span><span class='lparen'>(</span><span class='id proc_instance'>proc_instance</span><span class='comma'>,</span> <span class='id highlight'>highlight</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span> <span class='op'>=</span> <span class='op'>*</span><span class='id proc_instance'>proc_instance</span><span class='period'>.</span><span class='id source_location'>source_location</span>
+  <span class='id new'>new</span> <span class='id source_from_file_and_line'>source_from_file_and_line</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='id file'>file</span><span class='comma'>,</span>
+      <span class='id line'>line</span><span class='comma'>,</span>
+      <span class='id opts'>opts</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='symbol'>:highlight</span> <span class='op'>=&gt;</span> <span class='id highlight'>highlight</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="source_from_file_and_line-class_method">
+  
+    + (<tt>String</tt>) <strong>source_from_file_and_line</strong>(file, from_line = 1) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the code that is indented at least as much as the first line to
+extract.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Returns the code that is indented at least as much as the first line to
+extract.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 49</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id source_from_file_and_line'>source_from_file_and_line</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id from_line'>from_line</span><span class='op'>=</span><span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id file'>file</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(irb)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>then</span> <span class='comment'># irb special case
+</span>    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Requires Readline to extract lines from irb</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>Readline</span><span class='op'>::</span><span class='const'>HISTORY</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='rparen'>)</span>
+    <span class='id raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Requires the current line number from irb to extract lines from irb</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>IRB</span><span class='period'>.</span><span class='const'>CurrentContext</span><span class='period'>.</span><span class='id instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='symbol'>:@line_no</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id slice'>slice</span> <span class='op'>=</span> <span class='op'>-</span><span class='op'>::</span><span class='const'>IRB</span><span class='period'>.</span><span class='const'>CurrentContext</span><span class='period'>.</span><span class='id instance_variable_get'>instance_variable_get</span><span class='lparen'>(</span><span class='symbol'>:@line_no</span><span class='rparen'>)</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span>
+    <span class='id lines'>lines</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>Readline</span><span class='op'>::</span><span class='const'>HISTORY</span><span class='period'>.</span><span class='id to_a'>to_a</span><span class='lbracket'>[</span><span class='id slice'>slice</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id lines'>lines</span>  <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id readlines'>readlines</span><span class='lparen'>(</span><span class='id file'>file</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id string'>string</span> <span class='op'>=</span> <span class='id lines'>lines</span><span class='lbracket'>[</span><span class='lparen'>(</span><span class='id from_line'>from_line</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>[\r\n]*\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id string'>string</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\t+</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id m'>m</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span><span class='op'>*</span><span class='id m'>m</span><span class='period'>.</span><span class='id size'>size</span> <span class='rbrace'>}</span>
+  <span class='id indent'>indent</span> <span class='op'>=</span> <span class='id string'>string</span><span class='lbracket'>[</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ *</span><span class='regexp_end'>/</span></span><span class='rbracket'>]</span>
+  <span class='id string'>string</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ {0,</span><span class='embexpr_beg'>#{</span><span class='id indent'>indent</span><span class='period'>.</span><span class='id size'>size</span><span class='op'>-</span><span class='int'>1</span><span class='rbrace'>}</span><span class='tstring_content'>}[^ ].*\z</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'># drop everything that is less indented
+</span>  <span class='id string'>string</span><span class='period'>.</span><span class='id gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id indent'>indent</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='comment'># unindent
+</span>  <span class='id string'>string</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="inspect-instance_method">
+  
+    - (<tt>String</tt>) <strong>inspect</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='id code'>code</span> <span class='op'>=</span> <span class='ivar'>@code</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n(?!\s*\z)</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id strip'>strip</span><span class='period'>.</span><span class='id squeeze'>squeeze</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(.{40}).+</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\\1…</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>#&lt;%s:0x%x file=%p line=%d code=`%s`&gt;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='id object_id'>object_id</span><span class='op'>&gt;&gt;</span><span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@file</span><span class='comma'>,</span> <span class='ivar'>@starting_line</span><span class='comma'>,</span> <span class='id code'>code</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="options!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>options!</strong>(value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Update the options
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>nil</tt>, <tt>Hash</tt>)</span>
+      
+      
+        <span class='name'>options</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Options to customize the presentation of the source code. Nil doesn&#8217;t
+change the current options. see <span class='object_link'><a href="#DefaultOptions-constant" title="BareTest::CodeSource::DefaultOptions (constant)">DefaultOptions</a></span>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='id options!'>options!</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id value'>value</span> <span class='op'>?</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id dup'>dup</span>
+  <span class='ivar'>@to_s</span>    <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='id highlight'>highlight</span>            <span class='op'>=</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:highlight</span><span class='rbracket'>]</span>
+  <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:highlight</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id highlight'>highlight</span>
+    <span class='kw'>when</span> <span class='kw'>nil</span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='kw'>when</span> <span class='const'>Integer</span> <span class='kw'>then</span> <span class='lbracket'>[</span><span class='id highlight'>highlight</span><span class='rbracket'>]</span>
+    <span class='kw'>when</span> <span class='const'>Array</span> <span class='kw'>then</span> <span class='id highlight'>highlight</span>
+    <span class='kw'>else</span> <span class='id highlight'>highlight</span><span class='period'>.</span><span class='id to_a'>to_a</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@options</span><span class='period'>.</span><span class='id freeze'>freeze</span>
+
+  <span class='kw'>self</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt>String</tt>) <strong>to_s</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Presents the code as specified by the options.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The formatted code
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id to_s'>to_s</span>
+  <span class='ivar'>@to_s</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+    <span class='id line_number'>line_number</span>        <span class='op'>=</span> <span class='ivar'>@starting_line</span>
+    <span class='id line_count'>line_count</span>         <span class='op'>=</span> <span class='ivar'>@code</span><span class='period'>.</span><span class='id count'>count</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id normal_template'>normal_template</span>    <span class='op'>=</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:template</span><span class='rbracket'>]</span>
+    <span class='id highlight_template'>highlight_template</span> <span class='op'>=</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:highlight_template</span><span class='rbracket'>]</span>
+    <span class='id highlight'>highlight</span>          <span class='op'>=</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:highlight</span><span class='rbracket'>]</span>
+    <span class='id digits'>digits</span>             <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id log10'>log10</span><span class='lparen'>(</span><span class='ivar'>@starting_line</span><span class='op'>+</span><span class='id line_count'>line_count</span><span class='rparen'>)</span><span class='period'>.</span><span class='id floor'>floor</span><span class='op'>+</span><span class='int'>1</span>
+    <span class='id output'>output</span>             <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id output'>output</span>            <span class='op'>&lt;&lt;</span> <span class='id sprintf'>sprintf</span><span class='lparen'>(</span><span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:header</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='ivar'>@file</span><span class='comma'>,</span> <span class='id line_number'>line_number</span><span class='rparen'>)</span>
+    <span class='ivar'>@code</span><span class='period'>.</span><span class='id each_line'>each_line</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id line'>line</span><span class='op'>|</span>
+      <span class='id template'>template</span> <span class='op'>=</span> <span class='id highlight'>highlight</span><span class='period'>.</span><span class='id include?'>include?</span><span class='lparen'>(</span><span class='id line_number'>line_number</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id highlight_template'>highlight_template</span> <span class='op'>:</span> <span class='id normal_template'>normal_template</span>
+      <span class='id output'>output</span>  <span class='op'>&lt;&lt;</span> <span class='id sprintf'>sprintf</span><span class='lparen'>(</span><span class='id template'>template</span><span class='comma'>,</span> <span class='id digits'>digits</span><span class='comma'>,</span> <span class='id line_number'>line_number</span><span class='comma'>,</span> <span class='id line'>line</span><span class='period'>.</span><span class='id chomp'>chomp</span><span class='rparen'>)</span>
+      <span class='id line_number'>line_number</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+    <span class='id output'>output</span> <span class='op'>&lt;&lt;</span> <span class='ivar'>@options</span><span class='lbracket'>[</span><span class='symbol'>:footer</span><span class='rbracket'>]</span>
+    <span class='ivar'>@to_s</span> <span class='op'>=</span> <span class='id output'>output</span><span class='period'>.</span><span class='id compact'>compact</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Sat Jan 29 01:47:07 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.6.4 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
