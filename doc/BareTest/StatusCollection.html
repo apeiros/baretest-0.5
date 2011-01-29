@@ -74,12 +74,25 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/baretest/status_collection.rb</dd>
+    <dd class="r2 last">lib/baretest/statuscollection.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+A StatusCollection keeps track of the amount of different states and the
+most prevalent status code (see <span class='object_link'><a href="Status.html#Codes-constant" title="BareTest::Status::Codes (constant)">BareTest::Status::Codes</a></span> for the
+prevalence order).
+</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
   <ul class="summary">
@@ -196,7 +209,7 @@ A new instance of StatusCollection.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (String) <strong>inspect</strong> </a>
     
 
     
@@ -209,10 +222,7 @@ A new instance of StatusCollection.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-:nodoc:.
-</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -244,7 +254,7 @@ Self.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#values_at-instance_method" title="#values_at (instance method)">- (Object) <strong>values_at</strong>(*args) </a>
+      <a href="#values_at-instance_method" title="#values_at (instance method)">- (Object) <strong>values_at</strong>(*codes) </a>
     
 
     
@@ -257,7 +267,10 @@ Self.
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'><p>
+Get the counts for multiple status codes at once.
+</p>
+</div></span>
   
 </li>
 
@@ -292,12 +305,12 @@ A new instance of StatusCollection
       <pre class="lines">
 
 
-8
-9
-10</pre>
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span>
   <span class='ivar'>@count</span>  <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
@@ -358,12 +371,12 @@ The status identifier, see BareTest::Status.
       <pre class="lines">
 
 
-6
-7
-8</pre>
+9
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id count'>count</span>
   <span class='ivar'>@count</span>
@@ -422,12 +435,12 @@ to be added to this collection
       <pre class="lines">
 
 
-22
-23
-24</pre>
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id status'>status</span><span class='rparen'>)</span>
   <span class='ivar'>@count</span><span class='lbracket'>[</span><span class='id status'>status</span><span class='period'>.</span><span class='id code'>code</span><span class='rbracket'>]</span> <span class='op'>+=</span> <span class='int'>1</span>
@@ -461,12 +474,12 @@ to be added to this collection
       <pre class="lines">
 
 
-31
-32
-33</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id code'>code</span>
   <span class='const'>BareTest</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>Codes</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id status'>status</span><span class='op'>|</span> <span class='ivar'>@count</span><span class='lbracket'>[</span><span class='id status'>status</span><span class='rbracket'>]</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='rbrace'>}</span>
@@ -479,40 +492,54 @@ to be added to this collection
       <div class="method_details ">
   <p class="signature " id="inspect-instance_method">
   
-    - (<tt>Object</tt>) <strong>inspect</strong> 
+    - (<tt>String</tt>) <strong>inspect</strong> 
   
 
   
 </p><div class="docstring">
   <div class="discussion">
-    <p>
-:nodoc:
-</p>
-
+    
 
   </div>
 </div>
 <div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
   
+    <li>
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-35
-36
-37
-38
-39</pre>
+52
+53
+54
+55
+56
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='id inspect'>inspect</span> <span class='comment'># :nodoc:
-</span>  <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:%p:%s count: %p&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+<span class='kw'>def</span> <span class='id inspect'>inspect</span>
+  <span class='id sprintf'>sprintf</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;%s:0x%x code=%p %s&gt;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span>
-    <span class='ivar'>@count</span>
+    <span class='id object_id'>object_id</span> <span class='op'>&gt;&gt;</span> <span class='int'>1</span><span class='comma'>,</span>
+    <span class='id code'>code</span><span class='comma'>,</span>
+    <span class='const'>BareTest</span><span class='op'>::</span><span class='const'>Status</span><span class='op'>::</span><span class='const'>Codes</span><span class='period'>.</span><span class='id keys'>keys</span><span class='period'>.</span><span class='id reverse'>reverse</span><span class='period'>.</span><span class='id map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id key'>key</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id key'>key</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@count</span><span class='lbracket'>[</span><span class='id key'>key</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -550,7 +577,8 @@ Self
       
         &mdash;
         <div class='inline'><p>
-to update this one with
+Updates this StatusCollection with the values of the given
+status_collection by adding all counts against its own.
 </p>
 </div>
       
@@ -583,15 +611,15 @@ self
       <pre class="lines">
 
 
-14
-15
-16
-17
-18
-19</pre>
+19
+20
+21
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id update'>update</span><span class='lparen'>(</span><span class='id status_collection'>status_collection</span><span class='rparen'>)</span>
   <span class='ivar'>@count</span><span class='period'>.</span><span class='id update'>update</span><span class='lparen'>(</span><span class='id status_collection'>status_collection</span><span class='period'>.</span><span class='id count'>count</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id key'>key</span><span class='comma'>,</span> <span class='id my_value'>my_value</span><span class='comma'>,</span> <span class='id other_value'>other_value</span><span class='op'>|</span>
@@ -607,25 +635,68 @@ self
       <div class="method_details ">
   <p class="signature " id="values_at-instance_method">
   
-    - (<tt>Object</tt>) <strong>values_at</strong>(*args) 
+    - (<tt>Object</tt>) <strong>values_at</strong>(*codes) 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Get the counts for multiple status codes at once.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <h3>Examples:</h3>
+    
+      <h4><div class='inline'></div></h4>
+      <pre class="example code"><span class='id collection'>collection</span> <span class='op'>=</span> <span class='const'>BareTest</span><span class='op'>::</span><span class='const'>StatusCollection</span><span class='period'>.</span><span class='id new'>new</span>
+<span class='int'>3</span><span class='period'>.</span><span class='id times'>times</span> <span class='kw'>do</span> <span class='id collection'>collection</span> <span class='op'>&lt;&lt;</span> <span class='const'>BareTest</span><span class='op'>::</span><span class='const'>Status</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='symbol'>:success</span><span class='rparen'>)</span> <span class='kw'>end</span>
+<span class='int'>2</span><span class='period'>.</span><span class='id times'>times</span> <span class='kw'>do</span> <span class='id collection'>collection</span> <span class='op'>&lt;&lt;</span> <span class='const'>BareTest</span><span class='op'>::</span><span class='const'>Status</span><span class='period'>.</span><span class='id new'>new</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='symbol'>:failure</span><span class='rparen'>)</span> <span class='kw'>end</span>
+<span class='id collection'>collection</span><span class='period'>.</span><span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='symbol'>:success</span><span class='comma'>,</span> <span class='symbol'>:failure</span><span class='comma'>,</span> <span class='symbol'>:skipped</span><span class='rparen'>)</span> <span class='comment'># =&gt; [3, 2, 0]</span></pre>
+    
+  </div>
+<h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='type'>(<tt>*Symbol</tt>)</span>
+      
+      
+        <span class='name'>*codes</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The values for which codes to return
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-26
-27
-28</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status_collection.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/statuscollection.rb', line 41</span>
 
-<span class='kw'>def</span> <span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
-  <span class='ivar'>@count</span><span class='period'>.</span><span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id args'>args</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id codes'>codes</span><span class='rparen'>)</span>
+  <span class='ivar'>@count</span><span class='period'>.</span><span class='id values_at'>values_at</span><span class='lparen'>(</span><span class='op'>*</span><span class='id codes'>codes</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -637,7 +708,7 @@ self
 </div>
     
     <div id="footer">
-  Generated on Sat Jan 29 01:47:07 2011 by 
+  Generated on Sat Jan 29 13:50:48 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>

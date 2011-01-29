@@ -1,5 +1,5 @@
 lib/baretest/phase.rb a50edaf01901f804a4be166b2a47831de72ad004
-lib/baretest/status.rb 0e9679f026398c8f2c9c820a998abb137b43e4ce
+lib/baretest/status.rb 9b255b878d703fdfbcddfa9d4a4671bee34228b9
 lib/baretest/codesource.rb be7813fcd7883afa44fa865f720a70f52593c2e1
 lib/baretest/phase/exercise.rb af40e788a378e03055a6c6bf5ab7b3a99b4fd247
-lib/baretest/status_collection.rb d8cad269aa52e336801825bd323ef47ce9436e2f
+lib/baretest/statuscollection.rb 1de1459f871711b792eef88e705fa5c5e771cc4a
