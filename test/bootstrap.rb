@@ -14,15 +14,15 @@ begin
   Bootstrap[:lib]       = File.expand_path(File.join(Bootstrap[:base], 'lib'))
   Bootstrap[:test]      = File.expand_path(File.join(Bootstrap[:base], 'test'))
   Bootstrap[:bootstrap] = File.expand_path(File.join(Bootstrap[:base], 'test', 'bootstrap'))
-  
+
   $LOAD_PATH.unshift(Bootstrap[:lib])
-  
+
   # sanity check: ruby version
   section = "__sanity_check_ruby_version__"
   running_version   = RUBY_VERSION.scan(/\d+/).map { |segment| segment.to_i }
   required_provided = (running_version <=> [1,9,2]) >= 0
   raise "Bootstrap requires ruby version 1.9.2 or higher" unless required_provided
-  
+
   # sanity check: presence of baretest
   section = "__sanity_check_directories__"
   raise "Project root is not a directory" unless File.directory?(Bootstrap[:base])
@@ -55,6 +55,7 @@ begin
   # perform the bootstrapping
   %w[
     baretest/status
+    baretest/status_collection
     baretest/phase
     baretest/phase/exercise
   ].each do |current|
