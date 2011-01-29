@@ -15,6 +15,7 @@ begin
   Bootstrap[:lib]       = File.expand_path(File.join(Bootstrap[:base], 'lib'))
   Bootstrap[:test]      = File.expand_path(File.join(Bootstrap[:base], 'test'))
   Bootstrap[:bootstrap] = File.expand_path(File.join(Bootstrap[:base], 'test', 'bootstrap'))
+  Bootstrap[:support]   = File.expand_path(File.join(Bootstrap[:base], 'test', 'bootstrap', 'support'))
 
   $LOAD_PATH.unshift(Bootstrap[:lib])
 
@@ -46,6 +47,9 @@ begin
   def assert_match(expected, actual, message=nil)
     raise(message || "Expected #{expected.inspect} to match #{actual.inspect}") unless expected =~ actual
   end
+  def assert_is_a(expected, actual, message=nil)
+    raise(message || "Expected an instance of #{expected} but was #{actual.class}") unless actual.is_a?(expected)
+  end
   def assert_raises(message)
     yield
   rescue
@@ -61,11 +65,14 @@ begin
     add_filter "./test/"
 
     begin
+#         baretest/phase
+#         baretest/phase/exercise
+
       %w[
         baretest/status
         baretest/statuscollection
-        baretest/phase
-        baretest/phase/exercise
+        baretest/codesource
+        baretest/context
       ].each do |current|
         section = current
         print "Bootstrapping #{section}…"
