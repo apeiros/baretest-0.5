@@ -8,6 +8,7 @@
 
 
 
+require 'baretest'
 require 'baretest/status'
 require 'baretest/codesource'
 
@@ -23,6 +24,12 @@ module BareTest
   # Baseclass that encapsulates the single phases in a test.
   # A test consists of the four phases setup, exercise, verify and teardown.
   class Phase
+    class StatusException < StandardError; end
+    class Pending < StatusException; end
+    class Failure < StatusException; end
+
+    PendingNoCode = Pending.new("No code provided")
+
     attr_reader :codeblock
 
     # @return [Boolean]
@@ -44,35 +51,48 @@ module BareTest
     #   object is stored here.
     attr_reader :raised
 
+    # @return [Symbol]
+    #   The phase identifier of this Phase instance.
+    #   Should be one of
+    #   * :initialization
+    #   * :setup
+    #   * :exercise
+    #   * :verify
+    #   * :teardown
+    #   * :cleanup
+    attr_reader :phase
 
-    def initialize(&codeblock)
+    # @param [Symbol] phase
+    #   The phase identifier of this Phase instance.
+    #   Should be one of
+    #   * :initialization
+    #   * :setup
+    #   * :exercise
+    #   * :verify
+    #   * :teardown
+    #   * :cleanup
+    def initialize(phase, &codeblock)
       @codeblock    = codeblock
       @returned     = false
       @return_value = nil
       @raised       = nil
+      @phase        = phase
     end
 
     # @return [BareTest::CodeSource]
     #   Returns the code of this Phase as CodeSource instance.
-    def user_codesource
+    def codesource
       CodeSource.from(@codeblock)
-    end
-
-    # @return [Symbol]
-    #   The phase identifier - :setup, :exercise, :verify or :teardown - of this
-    #   Phase instance.
-    def phase
-      raise "Your Phase subclass #{self.class.to_s} must override #phase."
     end
 
     # @param [Object]
     #   The context within which to evaluate the code-block.
     # @return [self]
-    def execute_in_context(context)
+    def execute(context)
       @returned = false
-      if @execute_codeblock then
+      if @codeblock then
         begin
-          @return_value = context.instance_eval(&@execute_codeblock)
+          @return_value = context.instance_eval(&@codeblock)
           @returned     = true
           @raised       = nil
         rescue *BareTest::PassthroughExceptions => exception
@@ -85,7 +105,7 @@ module BareTest
         end
       else # no code means pending
         @return_value = nil
-        @raised       = Pending.new(phase, "No code provided")
+        @raised       = PendingNoCode
       end
 
       self

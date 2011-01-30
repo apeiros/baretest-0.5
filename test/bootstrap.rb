@@ -6,6 +6,10 @@
 # ABOUT THIS FILE
 # bootstrap.rb runs the bootstrap tests for baretest.
 
+require 'stringio'
+
+
+
 section = "__initialize__"
 start   = Time.now
 
@@ -64,27 +68,31 @@ begin
   rescued      = nil
   SimpleCov.start do
     add_filter "./test/"
-
-    begin
-#         baretest/phase
-#         baretest/phase/exercise
-
-      %w[
-        baretest/status
-        baretest/statuscollection
-        baretest/codesource
-        baretest/context
-        baretest/phase
-      ].each do |current|
-        section = current
-        print "Bootstrapping #{section}…"
-        load(File.join(Bootstrap[:bootstrap], section+".rb"))
-        printf "\r\e[42m %-78s \e[0m\n", "Bootstrapped section #{section}"
-      end
-    rescue Exception => e
-      rescued = e
-    end
   end
+
+  begin
+    # baretest/phase
+    # baretest/phase/exercise
+
+    %w[
+      baretest/status
+      baretest/statuscollection
+      baretest/codesource
+      baretest/context
+      baretest/phase
+    ].each do |current|
+      section = current
+      print "Bootstrapping #{section}…"
+      load(File.join(Bootstrap[:bootstrap], section+".rb"))
+      printf "\r\e[42m %-78s \e[0m\n", "Bootstrapped section #{section}"
+    end
+  rescue Exception => e
+    rescued = e
+  end
+
+  $stdout = StringIO.new
+  SimpleCov::Formatter::HTMLFormatter.new.format(SimpleCov.result)
+  $stdout = STDOUT
 
   raise rescued if rescued
 
