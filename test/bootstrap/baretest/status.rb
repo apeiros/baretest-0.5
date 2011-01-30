@@ -7,45 +7,57 @@ assert_raises "Expected BareTest::Status.new to raise without arguments" do
 end
 
 assert_raises "Expected BareTest::Status.new to raise with 1 argument" do
-  status = BareTest::Status.new(nil)
+  status = BareTest::Status.new(:success)
 end
 
 # success
-status = BareTest::Status.new(nil, :success)
-assert_equal nil, status.entity
+status = BareTest::Status.new(:success, :cleanup)
 assert_equal :success, status.code
+assert_same  true, status.success?
+assert_same  false, status.pending?
+assert_same  false, status.failure?
+assert_same  false, status.exception?
 assert_equal :cleanup, status.phase
 assert_equal nil, status.reason
 assert_equal nil, status.exception
 assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:success phase=:cleanup>\z/, status.inspect)
 
-# skipped
-status = BareTest::Status.new(nil, :skipped, :setup, "Skipreason")
-assert_equal nil, status.entity
-assert_equal :skipped, status.code
+# pending
+status = BareTest::Status.new(:pending, :setup, "Skipreason")
+assert_equal :pending, status.code
+assert_same  false, status.success?
+assert_same  true, status.pending?
+assert_same  false, status.failure?
+assert_same  false, status.exception?
 assert_equal :setup, status.phase
 assert_equal ["Skipreason"], status.reason
 assert_equal nil, status.exception
-assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:skipped phase=:setup reason="Skipreason">\z/, status.inspect)
+assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:pending phase=:setup reason="Skipreason">\z/, status.inspect)
 
-# skipped, long reason
-status = BareTest::Status.new(nil, :skipped, :setup, "A very long Skipreason with so many words")
-assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:skipped phase=:setup reason="A very long Skipreas…">\z/, status.inspect)
+# pending, long reason
+status = BareTest::Status.new(:pending, :setup, "A very long Skipreason with so many words")
+assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:pending phase=:setup reason="A very long Skipreas…">\z/, status.inspect)
 
 # failure
-status = BareTest::Status.new(nil, :failure, :verify, "Failurereason")
-assert_equal nil, status.entity
+status = BareTest::Status.new(:failure, :verification, "Failurereason")
 assert_equal :failure, status.code
-assert_equal :verify, status.phase
+assert_same  false, status.success?
+assert_same  false, status.pending?
+assert_same  true, status.failure?
+assert_same  false, status.exception?
+assert_equal :verification, status.phase
 assert_equal ["Failurereason"], status.reason
 assert_equal nil, status.exception
-assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:failure phase=:verify reason="Failurereason">\z/, status.inspect)
+assert_match(/\A\#<BareTest::Status:0x[\da-f]+ code=:failure phase=:verification reason="Failurereason">\z/, status.inspect)
 
 # exception
 exception = ArgumentError.new("Exceptionmessage")
-status    = BareTest::Status.new(nil, :exception, :exercise, nil, exception)
-assert_equal nil, status.entity
+status    = BareTest::Status.new(:exception, :exercise, nil, exception)
 assert_equal :exception, status.code
+assert_same  false, status.success?
+assert_same  false, status.pending?
+assert_same  false, status.failure?
+assert_same  true, status.exception?
 assert_equal :exercise, status.phase
 assert_equal ["Exceptionmessage"], status.reason
 assert_equal exception, status.exception

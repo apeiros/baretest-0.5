@@ -23,8 +23,7 @@ module BareTest
   # Baseclass that encapsulates the single phases in a test.
   # A test consists of the four phases setup, exercise, verify and teardown.
   class Phase
-    attr_reader :user_codeblock
-    attr_reader :execute_codeblock
+    attr_reader :codeblock
 
     # @return [Boolean]
     #   Whether execution of the phase has returned a value
@@ -47,17 +46,16 @@ module BareTest
 
 
     def initialize(&codeblock)
-      @user_codeblock    = codeblock
-      @execute_codeblock = codeblock
-      @returned          = false
-      @return_value      = nil
-      @raised            = nil
+      @codeblock    = codeblock
+      @returned     = false
+      @return_value = nil
+      @raised       = nil
     end
 
     # @return [BareTest::CodeSource]
     #   Returns the code of this Phase as CodeSource instance.
     def user_codesource
-      CodeSource.from(@user_codeblock)
+      CodeSource.from(@codeblock)
     end
 
     # @return [Symbol]

@@ -37,7 +37,7 @@ module BareTest
   #     * Failure
   #       The actual outcome of the test different from the expected outcome
   #       Associated with black on red in standard output.
-  #   * Skipped
+  #   * Pending
   #     The test was not executed
   #     Associated with black on yellow in standard output.
   #     * Pending
@@ -64,13 +64,9 @@ module BareTest
     Codes = {
       :exception => 0,
       :failure   => 1,
-      :skipped   => 2,
+      :pending   => 2,
       :success   => 3,
     }
-
-    # @return [BareTest::Phase, BareTest::Test, BareTest::Suite, BareTest::Run]
-    #   The phase, test, suite or run this status belongs to
-    attr_reader :entity
 
     # @return [Symbol]
     #   The phase  execute context.
@@ -90,8 +86,6 @@ module BareTest
     #   and caused the exception status.
     attr_reader :exception
 
-    # @param [BareTest::Phase, BareTest::Test, BareTest::Suite, BareTest::Run] entity
-    #   The entity this Status belongs to.
     # @param [Symbol] code
     #   The status code, one of the keys in {Codes}
     # @param [Symbol] phase
@@ -102,9 +96,8 @@ module BareTest
     #   The detailed reason in case of :skipped, :failure or :exception
     # @param [Exception] exception
     #   The exception that cased the exception status in case of :exception
-    def initialize(entity, code, phase=:cleanup, reason=nil, exception=nil)
+    def initialize(code, phase, reason=nil, exception=nil)
       reason   ||= exception && exception.message
-      @entity    = entity
       @code      = code
       @phase     = phase
       @reason    = reason.is_a?(String) ? [reason] : reason
@@ -125,6 +118,22 @@ module BareTest
         else
           sprintf "#<%s:0x%x code=%p phase=%p reason=%p>", *values, reason
       end
+    end
+
+    def success?
+      @code == :success
+    end
+
+    def pending?
+      @code == :pending
+    end
+
+    def failure?
+      @code == :failure
+    end
+
+    def exception?
+      @code == :exception
     end
   end
 end

@@ -1,7 +1,9 @@
 require 'baretest/phase'
 
-raise "Missing Phase" unless defined? BareTest::Phase
+context = BareTest::Context.new
+phase   = BareTest::Phase.new
 
-phase = BareTest::Phase.new
-phase.execute
-raise "Status should be pending" unless phase.status.pending?
+assert_same false, phase.returned
+assert_same nil,   phase.return_value
+assert_same nil,   phase.raised
+

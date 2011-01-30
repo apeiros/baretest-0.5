@@ -21,21 +21,21 @@
       <img src="./assets/0.3.9/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-01-29T19:31:37+01:00">2011-01-29T19:31:37+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-01-30T15:28:41+01:00">2011-01-30T15:28:41+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     All Files
-    (<span class="green">100.0%</span>)
+    (<span class="yellow">88.57%</span>)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>4</b> files in total.
-    <b>102</b> relevant lines. 
-    <span class="green"><b>102</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>5</b> files in total.
+    <b>140</b> relevant lines. 
+    <span class="green"><b>124</b> lines covered</span> and
+    <span class="red"><b>16</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -69,11 +69,20 @@
       </tr>
       
       <tr>
+        <td><a href="#69a869c80900c96bdd742ec00bfaeb4c3fa49ac9" class="src_link" title="./lib/baretest/phase.rb">./lib/baretest/phase.rb</a></td>
+        <td class="red">50.0 %</td>
+        <td>94</td>
+        <td>32</td>
+        <td>16</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
         <td><a href="#b2dbf52ad651f3cb3ff9585308abc4d32223630e" class="src_link" title="./lib/baretest/status.rb">./lib/baretest/status.rb</a></td>
         <td class="green">100.0 %</td>
-        <td>130</td>
-        <td>23</td>
-        <td>23</td>
+        <td>139</td>
+        <td>29</td>
+        <td>29</td>
         <td>0</td>
       </tr>
       
@@ -2353,6 +2362,1249 @@
   </table>
 </div>
       
+        <div class="source_table" id="69a869c80900c96bdd742ec00bfaeb4c3fa49ac9">
+  <table>
+    <thead>
+    <tr>
+      <td colspan="3">
+        <h3>./lib/baretest/phase.rb</h3>
+        <h4><span class="red">50.0 %</span> covered</h4>
+      </td>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Hits</th>
+    </tr>
+    </thead>
+    <tbody>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>1</pre>
+      </td>
+      <td>
+        <pre># Encoding: utf-8</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>2</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>3</pre>
+      </td>
+      <td>
+        <pre>#--</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>4</pre>
+      </td>
+      <td>
+        <pre># Copyright 2009-2011 by Stefan Rusterholz.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>5</pre>
+      </td>
+      <td>
+        <pre># All rights reserved.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>6</pre>
+      </td>
+      <td>
+        <pre># See LICENSE.txt for permissions.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>7</pre>
+      </td>
+      <td>
+        <pre>#++</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>8</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>9</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>10</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>11</pre>
+      </td>
+      <td>
+        <pre>require 'baretest/status'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>12</pre>
+      </td>
+      <td>
+        <pre>require 'baretest/codesource'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>13</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>14</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>15</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>16</pre>
+      </td>
+      <td>
+        <pre>module BareTest</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>17</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>18</pre>
+      </td>
+      <td>
+        <pre>  # @author   Stefan Rusterholz &lt;contact@apeiros.me&gt;</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>19</pre>
+      </td>
+      <td>
+        <pre>  # @since    0.5.0</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>20</pre>
+      </td>
+      <td>
+        <pre>  # @topic    Phases</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>21</pre>
+      </td>
+      <td>
+        <pre>  # @abstract</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>22</pre>
+      </td>
+      <td>
+        <pre>  #</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>23</pre>
+      </td>
+      <td>
+        <pre>  # Baseclass that encapsulates the single phases in a test.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>24</pre>
+      </td>
+      <td>
+        <pre>  # A test consists of the four phases setup, exercise, verify and teardown.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>25</pre>
+      </td>
+      <td>
+        <pre>  class Phase</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>26</pre>
+      </td>
+      <td>
+        <pre>    attr_reader :codeblock</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>27</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>28</pre>
+      </td>
+      <td>
+        <pre>    # @return [Boolean]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>29</pre>
+      </td>
+      <td>
+        <pre>    #   Whether execution of the phase has returned a value</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>30</pre>
+      </td>
+      <td>
+        <pre>    #   see #execute_in_context, #return_value</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>31</pre>
+      </td>
+      <td>
+        <pre>    attr_reader :returned</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>32</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>33</pre>
+      </td>
+      <td>
+        <pre>    # @return [Object]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>34</pre>
+      </td>
+      <td>
+        <pre>    #   The value the execution of the phase has returned</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>35</pre>
+      </td>
+      <td>
+        <pre>    #   Make sure to check whether the execution has returned at all first,</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>36</pre>
+      </td>
+      <td>
+        <pre>    #   since not returning and a return value of nil are indistinguishable</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>37</pre>
+      </td>
+      <td>
+        <pre>    #   otherwise.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>38</pre>
+      </td>
+      <td>
+        <pre>    #</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>39</pre>
+      </td>
+      <td>
+        <pre>    # see #execute_in_context, #returned</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>40</pre>
+      </td>
+      <td>
+        <pre>    attr_reader :return_value</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>41</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>42</pre>
+      </td>
+      <td>
+        <pre>    # @return [nil, Exception]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>43</pre>
+      </td>
+      <td>
+        <pre>    #   In case the execution of the phase raised an exception, the exception</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>44</pre>
+      </td>
+      <td>
+        <pre>    #   object is stored here.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>45</pre>
+      </td>
+      <td>
+        <pre>    attr_reader :raised</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>46</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>47</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>48</pre>
+      </td>
+      <td>
+        <pre>    def initialize(&amp;codeblock)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>49</pre>
+      </td>
+      <td>
+        <pre>      @codeblock    = codeblock</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>50</pre>
+      </td>
+      <td>
+        <pre>      @returned     = false</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>51</pre>
+      </td>
+      <td>
+        <pre>      @return_value = nil</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>52</pre>
+      </td>
+      <td>
+        <pre>      @raised       = nil</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>53</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>54</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>55</pre>
+      </td>
+      <td>
+        <pre>    # @return [BareTest::CodeSource]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>56</pre>
+      </td>
+      <td>
+        <pre>    #   Returns the code of this Phase as CodeSource instance.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>57</pre>
+      </td>
+      <td>
+        <pre>    def user_codesource</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>58</pre>
+      </td>
+      <td>
+        <pre>      CodeSource.from(@codeblock)</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>59</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>60</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>61</pre>
+      </td>
+      <td>
+        <pre>    # @return [Symbol]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>62</pre>
+      </td>
+      <td>
+        <pre>    #   The phase identifier - :setup, :exercise, :verify or :teardown - of this</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>63</pre>
+      </td>
+      <td>
+        <pre>    #   Phase instance.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>64</pre>
+      </td>
+      <td>
+        <pre>    def phase</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>65</pre>
+      </td>
+      <td>
+        <pre>      raise &quot;Your Phase subclass #{self.class.to_s} must override #phase.&quot;</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>66</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>67</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>68</pre>
+      </td>
+      <td>
+        <pre>    # @param [Object]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>69</pre>
+      </td>
+      <td>
+        <pre>    #   The context within which to evaluate the code-block.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>70</pre>
+      </td>
+      <td>
+        <pre>    # @return [self]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>71</pre>
+      </td>
+      <td>
+        <pre>    def execute_in_context(context)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>72</pre>
+      </td>
+      <td>
+        <pre>      @returned = false</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>73</pre>
+      </td>
+      <td>
+        <pre>      if @execute_codeblock then</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>74</pre>
+      </td>
+      <td>
+        <pre>        begin</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>75</pre>
+      </td>
+      <td>
+        <pre>          @return_value = context.instance_eval(&amp;@execute_codeblock)</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>76</pre>
+      </td>
+      <td>
+        <pre>          @returned     = true</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>77</pre>
+      </td>
+      <td>
+        <pre>          @raised       = nil</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>78</pre>
+      </td>
+      <td>
+        <pre>        rescue *BareTest::PassthroughExceptions =&gt; exception</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>79</pre>
+      </td>
+      <td>
+        <pre>          @return_value = nil</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>80</pre>
+      </td>
+      <td>
+        <pre>          @raised       = exception</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>81</pre>
+      </td>
+      <td>
+        <pre>          raise</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>82</pre>
+      </td>
+      <td>
+        <pre>        rescue Exception =&gt; exception</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>83</pre>
+      </td>
+      <td>
+        <pre>          @return_value = nil</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>84</pre>
+      </td>
+      <td>
+        <pre>          @raised       = exception</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>85</pre>
+      </td>
+      <td>
+        <pre>        end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>86</pre>
+      </td>
+      <td>
+        <pre>      else # no code means pending</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>87</pre>
+      </td>
+      <td>
+        <pre>        @return_value = nil</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>88</pre>
+      </td>
+      <td>
+        <pre>        @raised       = Pending.new(phase, &quot;No code provided&quot;)</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>89</pre>
+      </td>
+      <td>
+        <pre>      end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>90</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="miss" data-hits="0">
+      <td class="line_number">
+        <pre>91</pre>
+      </td>
+      <td>
+        <pre>      self</pre>
+      </td>
+      <td class="hits">
+        0
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>92</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>93</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>94</pre>
+      </td>
+      <td>
+        <pre>end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    </tbody>
+  </table>
+</div>
+      
         <div class="source_table" id="b2dbf52ad651f3cb3ff9585308abc4d32223630e">
   <table>
     <thead>
@@ -2883,7 +4135,7 @@
         <pre>40</pre>
       </td>
       <td>
-        <pre>  #   * Skipped</pre>
+        <pre>  #   * Pending</pre>
       </td>
       <td class="hits">
         
@@ -3234,7 +4486,7 @@
         <pre>67</pre>
       </td>
       <td>
-        <pre>      :skipped   =&gt; 2,</pre>
+        <pre>      :pending   =&gt; 2,</pre>
       </td>
       <td class="hits">
         
@@ -3286,7 +4538,7 @@
         <pre>71</pre>
       </td>
       <td>
-        <pre>    # @return [BareTest::Phase, BareTest::Test, BareTest::Suite, BareTest::Run]</pre>
+        <pre>    # @return [Symbol]</pre>
       </td>
       <td class="hits">
         
@@ -3299,7 +4551,7 @@
         <pre>72</pre>
       </td>
       <td>
-        <pre>    #   The phase, test, suite or run this status belongs to</pre>
+        <pre>    #   The phase  execute context.</pre>
       </td>
       <td class="hits">
         
@@ -3312,7 +4564,7 @@
         <pre>73</pre>
       </td>
       <td>
-        <pre>    attr_reader :entity</pre>
+        <pre>    attr_reader :phase</pre>
       </td>
       <td class="hits">
         1
@@ -3351,7 +4603,7 @@
         <pre>76</pre>
       </td>
       <td>
-        <pre>    #   The phase  execute context.</pre>
+        <pre>    #   The status identifier, one of :</pre>
       </td>
       <td class="hits">
         
@@ -3364,7 +4616,7 @@
         <pre>77</pre>
       </td>
       <td>
-        <pre>    attr_reader :phase</pre>
+        <pre>    attr_reader :code</pre>
       </td>
       <td class="hits">
         1
@@ -3390,7 +4642,7 @@
         <pre>79</pre>
       </td>
       <td>
-        <pre>    # @return [Symbol]</pre>
+        <pre>    # @return [nil, Array&lt;String&gt;]</pre>
       </td>
       <td class="hits">
         
@@ -3403,58 +4655,6 @@
         <pre>80</pre>
       </td>
       <td>
-        <pre>    #   The status identifier, one of :</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>81</pre>
-      </td>
-      <td>
-        <pre>    attr_reader :code</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>82</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>83</pre>
-      </td>
-      <td>
-        <pre>    # @return [nil, Array&lt;String&gt;]</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>84</pre>
-      </td>
-      <td>
         <pre>    #   Detailed reason for the status.</pre>
       </td>
       <td class="hits">
@@ -3465,7 +4665,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>85</pre>
+        <pre>81</pre>
       </td>
       <td>
         <pre>    #   Success usually has no reason.</pre>
@@ -3478,7 +4678,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>86</pre>
+        <pre>82</pre>
       </td>
       <td>
         <pre>    attr_reader :reason</pre>
@@ -3491,7 +4691,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>87</pre>
+        <pre>83</pre>
       </td>
       <td>
         <pre></pre>
@@ -3504,7 +4704,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>88</pre>
+        <pre>84</pre>
       </td>
       <td>
         <pre>    # @return [nil, Exception]</pre>
@@ -3517,7 +4717,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>89</pre>
+        <pre>85</pre>
       </td>
       <td>
         <pre>    #   Only present for status exception. The exception object that was raised</pre>
@@ -3530,7 +4730,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>90</pre>
+        <pre>86</pre>
       </td>
       <td>
         <pre>    #   and caused the exception status.</pre>
@@ -3543,7 +4743,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>91</pre>
+        <pre>87</pre>
       </td>
       <td>
         <pre>    attr_reader :exception</pre>
@@ -3556,7 +4756,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>92</pre>
+        <pre>88</pre>
       </td>
       <td>
         <pre></pre>
@@ -3569,33 +4769,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>93</pre>
-      </td>
-      <td>
-        <pre>    # @param [BareTest::Phase, BareTest::Test, BareTest::Suite, BareTest::Run] entity</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>94</pre>
-      </td>
-      <td>
-        <pre>    #   The entity this Status belongs to.</pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>95</pre>
+        <pre>89</pre>
       </td>
       <td>
         <pre>    # @param [Symbol] code</pre>
@@ -3608,7 +4782,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>96</pre>
+        <pre>90</pre>
       </td>
       <td>
         <pre>    #   The status code, one of the keys in {Codes}</pre>
@@ -3621,7 +4795,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>97</pre>
+        <pre>91</pre>
       </td>
       <td>
         <pre>    # @param [Symbol] phase</pre>
@@ -3634,7 +4808,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>98</pre>
+        <pre>92</pre>
       </td>
       <td>
         <pre>    #   The phase name at which the status was determined.</pre>
@@ -3647,7 +4821,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>99</pre>
+        <pre>93</pre>
       </td>
       <td>
         <pre>    #   Success will usually have the phase :cleanup, skipped usually :setup and</pre>
@@ -3660,7 +4834,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>100</pre>
+        <pre>94</pre>
       </td>
       <td>
         <pre>    #   the others :execution, :verify or :teardown.</pre>
@@ -3673,7 +4847,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>101</pre>
+        <pre>95</pre>
       </td>
       <td>
         <pre>    # @param [nil, String, Array&lt;String&gt;] reason</pre>
@@ -3686,7 +4860,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>102</pre>
+        <pre>96</pre>
       </td>
       <td>
         <pre>    #   The detailed reason in case of :skipped, :failure or :exception</pre>
@@ -3699,7 +4873,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>103</pre>
+        <pre>97</pre>
       </td>
       <td>
         <pre>    # @param [Exception] exception</pre>
@@ -3712,7 +4886,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>104</pre>
+        <pre>98</pre>
       </td>
       <td>
         <pre>    #   The exception that cased the exception status in case of :exception</pre>
@@ -3725,10 +4899,10 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>105</pre>
+        <pre>99</pre>
       </td>
       <td>
-        <pre>    def initialize(entity, code, phase=:cleanup, reason=nil, exception=nil)</pre>
+        <pre>    def initialize(code, phase, reason=nil, exception=nil)</pre>
       </td>
       <td class="hits">
         1
@@ -3738,7 +4912,7 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>106</pre>
+        <pre>100</pre>
       </td>
       <td>
         <pre>      reason   ||= exception &amp;&amp; exception.message</pre>
@@ -3751,20 +4925,7 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>107</pre>
-      </td>
-      <td>
-        <pre>      @entity    = entity</pre>
-      </td>
-      <td class="hits">
-        12
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="12">
-      <td class="line_number">
-        <pre>108</pre>
+        <pre>101</pre>
       </td>
       <td>
         <pre>      @code      = code</pre>
@@ -3777,7 +4938,7 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>109</pre>
+        <pre>102</pre>
       </td>
       <td>
         <pre>      @phase     = phase</pre>
@@ -3790,7 +4951,7 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>110</pre>
+        <pre>103</pre>
       </td>
       <td>
         <pre>      @reason    = reason.is_a?(String) ? [reason] : reason</pre>
@@ -3803,7 +4964,7 @@
     
     <tr class="hit" data-hits="12">
       <td class="line_number">
-        <pre>111</pre>
+        <pre>104</pre>
       </td>
       <td>
         <pre>      @exception = exception</pre>
@@ -3816,7 +4977,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>112</pre>
+        <pre>105</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3829,7 +4990,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>113</pre>
+        <pre>106</pre>
       </td>
       <td>
         <pre></pre>
@@ -3842,7 +5003,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>114</pre>
+        <pre>107</pre>
       </td>
       <td>
         <pre>    # @private</pre>
@@ -3855,7 +5016,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>115</pre>
+        <pre>108</pre>
       </td>
       <td>
         <pre>    # @return [String]</pre>
@@ -3868,7 +5029,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>116</pre>
+        <pre>109</pre>
       </td>
       <td>
         <pre>    def inspect</pre>
@@ -3881,7 +5042,7 @@
     
     <tr class="hit" data-hits="5">
       <td class="line_number">
-        <pre>117</pre>
+        <pre>110</pre>
       </td>
       <td>
         <pre>      values  = [self.class, object_id&gt;&gt;1, @code, @phase]</pre>
@@ -3894,7 +5055,7 @@
     
     <tr class="hit" data-hits="5">
       <td class="line_number">
-        <pre>118</pre>
+        <pre>111</pre>
       </td>
       <td>
         <pre>      reason  = @reason &amp;&amp; @reason.join(&quot;; &quot;).tr(&quot;\n&quot;,&quot;&quot;).sub(/\A(.{20}).+/m, '\\1…')</pre>
@@ -3907,7 +5068,7 @@
     
     <tr class="hit" data-hits="5">
       <td class="line_number">
-        <pre>119</pre>
+        <pre>112</pre>
       </td>
       <td>
         <pre>      message = exception &amp;&amp; exception.message</pre>
@@ -3920,7 +5081,7 @@
     
     <tr class="hit" data-hits="5">
       <td class="line_number">
-        <pre>120</pre>
+        <pre>113</pre>
       </td>
       <td>
         <pre>      case @code</pre>
@@ -3933,7 +5094,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>121</pre>
+        <pre>114</pre>
       </td>
       <td>
         <pre>        when :success</pre>
@@ -3946,7 +5107,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>122</pre>
+        <pre>115</pre>
       </td>
       <td>
         <pre>          sprintf &quot;#&lt;%s:0x%x code=%p phase=%p&gt;&quot;, *values</pre>
@@ -3959,7 +5120,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>123</pre>
+        <pre>116</pre>
       </td>
       <td>
         <pre>        when :exception</pre>
@@ -3972,7 +5133,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>124</pre>
+        <pre>117</pre>
       </td>
       <td>
         <pre>          sprintf &quot;#&lt;%s:0x%x code=%p phase=%p reason=%p exception=%p&gt;&quot;, *values, reason, message</pre>
@@ -3985,7 +5146,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>125</pre>
+        <pre>118</pre>
       </td>
       <td>
         <pre>        else</pre>
@@ -3998,7 +5159,7 @@
     
     <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>126</pre>
+        <pre>119</pre>
       </td>
       <td>
         <pre>          sprintf &quot;#&lt;%s:0x%x code=%p phase=%p reason=%p&gt;&quot;, *values, reason</pre>
@@ -4011,7 +5172,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>127</pre>
+        <pre>120</pre>
       </td>
       <td>
         <pre>      end</pre>
@@ -4024,7 +5185,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>128</pre>
+        <pre>121</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -4037,7 +5198,215 @@
     
     <tr class="never" >
       <td class="line_number">
+        <pre>122</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>123</pre>
+      </td>
+      <td>
+        <pre>    def success?</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>124</pre>
+      </td>
+      <td>
+        <pre>      @code == :success</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>125</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>126</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>127</pre>
+      </td>
+      <td>
+        <pre>    def pending?</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>128</pre>
+      </td>
+      <td>
+        <pre>      @code == :pending</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
         <pre>129</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>130</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>131</pre>
+      </td>
+      <td>
+        <pre>    def failure?</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>132</pre>
+      </td>
+      <td>
+        <pre>      @code == :failure</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>133</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>134</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>135</pre>
+      </td>
+      <td>
+        <pre>    def exception?</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="4">
+      <td class="line_number">
+        <pre>136</pre>
+      </td>
+      <td>
+        <pre>      @code == :exception</pre>
+      </td>
+      <td class="hits">
+        4
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>137</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>138</pre>
       </td>
       <td>
         <pre>  end</pre>
@@ -4050,7 +5419,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>130</pre>
+        <pre>139</pre>
       </td>
       <td>
         <pre>end</pre>

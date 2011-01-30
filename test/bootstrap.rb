@@ -16,6 +16,7 @@ begin
   Bootstrap[:test]      = File.expand_path(File.join(Bootstrap[:base], 'test'))
   Bootstrap[:bootstrap] = File.expand_path(File.join(Bootstrap[:base], 'test', 'bootstrap'))
   Bootstrap[:support]   = File.expand_path(File.join(Bootstrap[:base], 'test', 'bootstrap', 'support'))
+  CoverageThreshold     = 100.0 # report bad files when coverage is below this value
 
   $LOAD_PATH.unshift(Bootstrap[:lib])
 
@@ -73,6 +74,7 @@ begin
         baretest/statuscollection
         baretest/codesource
         baretest/context
+        baretest/phase
       ].each do |current|
         section = current
         print "Bootstrapping #{section}…"
@@ -94,6 +96,16 @@ rescue Exception => e
   exit 1 # enable automated use
 else
   printf "\e[1;42m %-78s \e[0m\n", "BOOTSTRAPPING SUCCESSFUL"
+  result    = SimpleCov.result
+  bad_files = result.source_files.select { |source_file| source_file.covered_percent < CoverageThreshold }
+  if bad_files.empty? then
+    printf "\e[1;42m %-78s \e[0m\n", "COVERAGE SUFFICIENT"
+  else
+    printf "\e[1;41m %-78s \e[0m\n", "COVERAGE INSUFFICIENT"
+    slice     = (File.expand_path("#{__FILE__}/../../").length+1)..-1
+    names     = bad_files.map { |file| " * #{file.filename[slice]} (#{file.covered_percent.round(1)}%)" }
+    puts *names
+  end
   printf "Time elapsed: %.1fs\n", (Time.now-start)
   exit 0 # normal, but let's be explicit
 end
