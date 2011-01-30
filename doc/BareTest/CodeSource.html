@@ -271,7 +271,7 @@ The set of options chosen to display this source code.
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#starting_line-instance_method" title="#starting_line (instance method)">- (String) <strong>starting_line</strong> </a>
+      <a href="#starting_line-instance_method" title="#starting_line (instance method)">- (Integer) <strong>starting_line</strong> </a>
     
 
     
@@ -416,7 +416,7 @@ A new instance of CodeSource.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#options%21-instance_method" title="#options! (instance method)">- (Object) <strong>options!</strong>(value) </a>
+      <a href="#options%21-instance_method" title="#options! (instance method)">- (self) <strong>options!</strong>(value) </a>
     
 
     
@@ -585,16 +585,16 @@ Options to customize the presentation of the source code see
       <pre class="lines">
 
 
-91
 92
 93
 94
 95
 96
-97</pre>
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id code'>code</span><span class='comma'>,</span> <span class='id file_name'>file_name</span><span class='comma'>,</span> <span class='id starting_line'>starting_line</span><span class='op'>=</span><span class='int'>1</span><span class='comma'>,</span> <span class='id options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='ivar'>@code</span>          <span class='op'>=</span> <span class='id code'>code</span>
@@ -676,12 +676,12 @@ The code
       <pre class="lines">
 
 
-67
 68
-69</pre>
+69
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id code'>code</span>
   <span class='ivar'>@code</span>
@@ -754,12 +754,12 @@ The name of the file from which the code is
       <pre class="lines">
 
 
-70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id file'>file</span>
   <span class='ivar'>@file</span>
@@ -834,12 +834,12 @@ is always frozen. @see #options! @see DefaultOptions
       <pre class="lines">
 
 
-80
 81
-82</pre>
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id options'>options</span>
   <span class='ivar'>@options</span>
@@ -855,7 +855,7 @@ is always frozen. @see #options! @see DefaultOptions
       <div class="method_details ">
   <p class="signature " id="starting_line-instance_method">
   
-    - (<tt>String</tt>) <strong>starting_line</strong>  <span class="extras">(readonly)</span>
+    - (<tt>Integer</tt>) <strong>starting_line</strong>  <span class="extras">(readonly)</span>
   
 
   
@@ -874,7 +874,7 @@ The starting line number from which the code is
   
     <li>
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Integer</tt>)</span>
       
       
       
@@ -912,12 +912,12 @@ The starting line number from which the code is
       <pre class="lines">
 
 
-73
 74
-75</pre>
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id starting_line'>starting_line</span>
   <span class='ivar'>@starting_line</span>
@@ -1019,16 +1019,16 @@ the first line to extract.
       <pre class="lines">
 
 
-38
 39
 40
 41
 42
 43
-44</pre>
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id from'>from</span><span class='lparen'>(</span><span class='id proc_instance'>proc_instance</span><span class='comma'>,</span> <span class='id highlight'>highlight</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id file'>file</span><span class='comma'>,</span> <span class='id line'>line</span> <span class='op'>=</span> <span class='op'>*</span><span class='id proc_instance'>proc_instance</span><span class='period'>.</span><span class='id source_location'>source_location</span>
@@ -1104,7 +1104,6 @@ extract.
       <pre class="lines">
 
 
-49
 50
 51
 52
@@ -1119,10 +1118,11 @@ extract.
 61
 62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id source_from_file_and_line'>source_from_file_and_line</span><span class='lparen'>(</span><span class='id file'>file</span><span class='comma'>,</span> <span class='id from_line'>from_line</span><span class='op'>=</span><span class='int'>1</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id file'>file</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(irb)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>then</span> <span class='comment'># irb special case
@@ -1202,13 +1202,13 @@ extract.
       <pre class="lines">
 
 
-144
-145
-146
-147</pre>
+148
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 144</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id inspect'>inspect</span>
   <span class='id code'>code</span> <span class='op'>=</span> <span class='ivar'>@code</span><span class='period'>.</span><span class='id gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n(?!\s*\z)</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id strip'>strip</span><span class='period'>.</span><span class='id squeeze'>squeeze</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A(.{40}).+</span><span class='regexp_end'>/m</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>\\1…</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -1222,7 +1222,7 @@ extract.
       <div class="method_details ">
   <p class="signature " id="options!-instance_method">
   
-    - (<tt>Object</tt>) <strong>options!</strong>(value) 
+    - (<tt>self</tt>) <strong>options!</strong>(value) 
   
 
   
@@ -1258,6 +1258,25 @@ change the current options. see <span class='object_link'><a href="#DefaultOptio
     </li>
   
 </ul>
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>self</tt>)</span>
+      
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Returns self.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
 <h3>Since:</h3>
 <ul class="since">
   
@@ -1282,10 +1301,6 @@ change the current options. see <span class='object_link'><a href="#DefaultOptio
       <pre class="lines">
 
 
-104
-105
-106
-107
 108
 109
 110
@@ -1295,10 +1310,14 @@ change the current options. see <span class='object_link'><a href="#DefaultOptio
 114
 115
 116
-117</pre>
+117
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id options!'>options!</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@options</span> <span class='op'>=</span> <span class='id value'>value</span> <span class='op'>?</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id merge'>merge</span><span class='lparen'>(</span><span class='id value'>value</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='ivar'>@options</span><span class='period'>.</span><span class='id dup'>dup</span>
@@ -1379,10 +1398,6 @@ The formatted code
       <pre class="lines">
 
 
-122
-123
-124
-125
 126
 127
 128
@@ -1397,10 +1412,14 @@ The formatted code
 137
 138
 139
-140</pre>
+140
+141
+142
+143
+144</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/codesource.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id to_s'>to_s</span>
   <span class='ivar'>@to_s</span> <span class='op'>||=</span> <span class='kw'>begin</span>
@@ -1431,7 +1450,7 @@ The formatted code
 </div>
     
     <div id="footer">
-  Generated on Sat Jan 29 19:29:07 2011 by 
+  Generated on Sun Jan 30 23:58:46 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>

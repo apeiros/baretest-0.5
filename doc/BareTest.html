@@ -59,8 +59,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/baretest/codesource.rb<span class="defines">,<br />
-  lib/baretest/phase.rb,<br /> lib/baretest/status.rb,<br /> lib/baretest/context.rb,<br /> lib/baretest/phase/exercise.rb,<br /> lib/baretest/statuscollection.rb</span>
+    <dd class="r1 last">lib/baretest.rb<span class="defines">,<br />
+  lib/baretest/phase.rb,<br /> lib/baretest/status.rb,<br /> lib/baretest/context.rb,<br /> lib/baretest/codesource.rb,<br /> lib/baretest/phase/exercise.rb,<br /> lib/baretest/statuscollection.rb</span>
 </dd>
   
 </dl>
@@ -68,16 +68,46 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>
-Encoding: utf-8 &#8212; Copyright 2009-2011 by Stefan Rusterholz. All
-rights reserved. See LICENSE.txt for permissions. ++
-</p>
-
+    
 
   </div>
 </div>
 <div class="tags">
+  <h3>Author:</h3>
+<ul class="author">
   
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+Stefan Rusterholz <contact@apeiros.me>
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 </div><h2>Defined Under Namespace</h2>
 <p class="children">
    
@@ -89,6 +119,69 @@ rights reserved. See LICENSE.txt for permissions. ++
   
 </p>
 
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="PassthroughExceptions-constant" class="">PassthroughExceptions =
+          <div class="docstring">
+  <div class="discussion">
+    <p>
+The exceptions baretest will not rescue
+</p>
+<table>
+<tr><td valign="top">NoMemoryError</td><td><p>
+a no-memory error means we don&#8217;t have enough memory to continue
+</p>
+</td></tr>
+<tr><td valign="top">SignalException</td><td><p>
+something sent the process a signal to terminate
+</p>
+</td></tr>
+<tr><td valign="top">Interrupt</td><td><p>
+Ctrl-C was issued, the process should terminate immediatly
+</p>
+</td></tr>
+<tr><td valign="top">SystemExit</td><td><p>
+the process terminates
+</p>
+</td></tr>
+</table>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span>
+  <span class='op'>::</span><span class='const'>NoMemoryError</span><span class='comma'>,</span>
+  <span class='op'>::</span><span class='const'>SignalException</span><span class='comma'>,</span>
+  <span class='op'>::</span><span class='const'>Interrupt</span><span class='comma'>,</span>
+  <span class='op'>::</span><span class='const'>SystemExit</span><span class='comma'>,</span>
+<span class='rbracket'>]</span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -96,7 +189,7 @@ rights reserved. See LICENSE.txt for permissions. ++
 </div>
     
     <div id="footer">
-  Generated on Sat Jan 29 19:29:07 2011 by 
+  Generated on Sun Jan 30 23:58:46 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>

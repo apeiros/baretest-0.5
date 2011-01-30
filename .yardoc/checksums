@@ -1,6 +1,7 @@
-lib/baretest/phase.rb 6ec2d0e8ee5926f18abb0baeaaa98555e7511111
-lib/baretest/status.rb 9b255b878d703fdfbcddfa9d4a4671bee34228b9
-lib/baretest/context.rb 350e03788a8e828f1b8c28d253dc4c2084c48354
-lib/baretest/codesource.rb b757f79da372d345ec53d2ce586a144951817c4d
+lib/baretest.rb 80f5e9c40f6b054151be87caa62cc3287ac53fdf
+lib/baretest/phase.rb 49a41b9c1989dfec51cd2e532fbab469827f52b1
+lib/baretest/status.rb 3e5a2e057d2a56c74a2a7beb8b87bd6477082b70
+lib/baretest/context.rb b76d5d58b033f2eb9dc4fd6b43819ddec7e58281
+lib/baretest/codesource.rb e65c404e9a8a428bdf241c070f0794b91d24d595
 lib/baretest/phase/exercise.rb af40e788a378e03055a6c6bf5ab7b3a99b4fd247
-lib/baretest/statuscollection.rb f54de27e33c933775a993956cff4bef6549b55e0
+lib/baretest/statuscollection.rb edd2163d6b6b11747546742bc4684204952bd149

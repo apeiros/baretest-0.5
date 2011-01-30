@@ -128,7 +128,7 @@ Associated with black on red in standard output.
 </ul>
 <ul>
 <li><p>
-Skipped The test was not executed Associated with black on yellow in
+Pending The test was not executed Associated with black on yellow in
 standard output.
 </p>
 <ul>
@@ -269,7 +269,7 @@ All codes in order of importance
         <dd><pre class="code"><span class='lbrace'>{</span>
   <span class='symbol'>:exception</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='comma'>,</span>
   <span class='symbol'>:failure</span>   <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span>
-  <span class='symbol'>:skipped</span>   <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span>
+  <span class='symbol'>:pending</span>   <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span>
   <span class='symbol'>:success</span>   <span class='op'>=&gt;</span> <span class='int'>3</span><span class='comma'>,</span>
 <span class='rbrace'>}</span></pre></dd>
       
@@ -301,33 +301,6 @@ All codes in order of importance
   
     <span class="summary_desc"><div class='inline'><p>
 The status identifier, one of :.
-</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#entity-instance_method" title="#entity (instance method)">- (BareTest::Phase, ...) <strong>entity</strong> </a>
-    
-
-    
-  </span>
-  
-  
-    <span class="note title readonly">readonly</span>
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-The phase, test, suite or run this status belongs to.
 </p>
 </div></span>
   
@@ -429,7 +402,49 @@ Detailed reason for the status.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Status) <strong>initialize</strong>(entity, code, phase = :cleanup, reason = nil, exception = nil) </a>
+      <a href="#exception%3F-instance_method" title="#exception? (instance method)">- (Boolean) <strong>exception?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure%3F-instance_method" title="#failure? (instance method)">- (Boolean) <strong>failure?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Status) <strong>initialize</strong>(code, phase, reason = nil, exception = nil) </a>
     
 
     
@@ -473,6 +488,48 @@ A new instance of Status.
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending%3F-instance_method" title="#pending? (instance method)">- (Boolean) <strong>pending?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#success%3F-instance_method" title="#success? (instance method)">- (Boolean) <strong>success?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -482,7 +539,7 @@ A new instance of Status.
     <div class="method_details first">
   <p class="signature first" id="initialize-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="BareTest::Status (class)">Status</a></span></tt>) <strong>initialize</strong>(entity, code, phase = :cleanup, reason = nil, exception = nil) 
+    - (<tt><span class='object_link'><a href="" title="BareTest::Status (class)">Status</a></span></tt>) <strong>initialize</strong>(code, phase, reason = nil, exception = nil) 
   
 
   
@@ -498,23 +555,6 @@ A new instance of Status
 <div class="tags">
   <h3>Parameters:</h3>
 <ul class="param">
-  
-    <li>
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Phase.html" title="BareTest::Phase (class)">BareTest::Phase</a></span></tt>, <tt>BareTest::Test</tt>, <tt>BareTest::Suite</tt>, <tt>BareTest::Run</tt>)</span>
-      
-      
-        <span class='name'>entity</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-The entity this Status belongs to.
-</p>
-</div>
-      
-    </li>
   
     <li>
       
@@ -540,8 +580,6 @@ The status code, one of the keys in <span class='object_link'><a href="#Codes-co
       
         <span class='name'>phase</span>
       
-      
-        <em class="default">(defaults to: <tt>:cleanup</tt>)</em>
       
       
         &mdash;
@@ -617,21 +655,19 @@ The exception that cased the exception status in case of :exception
       <pre class="lines">
 
 
-105
-106
-107
-108
-109
-110
-111
-112</pre>
+97
+98
+99
+100
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 97</span>
 
-<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id entity'>entity</span><span class='comma'>,</span> <span class='id code'>code</span><span class='comma'>,</span> <span class='id phase'>phase</span><span class='op'>=</span><span class='symbol'>:cleanup</span><span class='comma'>,</span> <span class='id reason'>reason</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id exception'>exception</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id initialize'>initialize</span><span class='lparen'>(</span><span class='id code'>code</span><span class='comma'>,</span> <span class='id phase'>phase</span><span class='comma'>,</span> <span class='id reason'>reason</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id exception'>exception</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id reason'>reason</span>   <span class='op'>||=</span> <span class='id exception'>exception</span> <span class='op'>&amp;&amp;</span> <span class='id exception'>exception</span><span class='period'>.</span><span class='id message'>message</span>
-  <span class='ivar'>@entity</span>    <span class='op'>=</span> <span class='id entity'>entity</span>
   <span class='ivar'>@code</span>      <span class='op'>=</span> <span class='id code'>code</span>
   <span class='ivar'>@phase</span>     <span class='op'>=</span> <span class='id phase'>phase</span>
   <span class='ivar'>@reason</span>    <span class='op'>=</span> <span class='id reason'>reason</span><span class='period'>.</span><span class='id is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='lbracket'>[</span><span class='id reason'>reason</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id reason'>reason</span>
@@ -710,93 +746,15 @@ The status identifier, one of :
       <pre class="lines">
 
 
-81
-82
-83</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id code'>code</span>
   <span class='ivar'>@code</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
-      <span id=""></span>
-      <span id="entity-instance_method"></span>
-      <div class="method_details ">
-  <p class="signature " id="entity-instance_method">
-  
-    - (<tt><span class='object_link'><a href="Phase.html" title="BareTest::Phase (class)">BareTest::Phase</a></span></tt>, ...) <strong>entity</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-The phase, test, suite or run this status belongs to
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-        <span class='type'>(<tt><span class='object_link'><a href="Phase.html" title="BareTest::Phase (class)">BareTest::Phase</a></span></tt>, <tt>BareTest::Test</tt>, <tt>BareTest::Suite</tt>, <tt>BareTest::Run</tt>)</span>
-      
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-The phase, test, suite or run this status belongs to
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-<h3>Since:</h3>
-<ul class="since">
-  
-    <li>
-      
-      
-      
-      
-        
-        <div class='inline'><p>
-0.5.0
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-73
-74
-75</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 73</span>
-
-<span class='kw'>def</span> <span class='id entity'>entity</span>
-  <span class='ivar'>@entity</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -868,12 +826,12 @@ caused the exception status.
       <pre class="lines">
 
 
-91
-92
-93</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id exception'>exception</span>
   <span class='ivar'>@exception</span>
@@ -946,12 +904,12 @@ The phase  execute context.
       <pre class="lines">
 
 
-77
-78
-79</pre>
+71
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id phase'>phase</span>
   <span class='ivar'>@phase</span>
@@ -1024,12 +982,12 @@ Detailed reason for the status. Success usually has no reason.
       <pre class="lines">
 
 
-86
-87
-88</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 80</span>
 
 <span class='kw'>def</span> <span class='id reason'>reason</span>
   <span class='ivar'>@reason</span>
@@ -1047,7 +1005,139 @@ Detailed reason for the status. Success usually has no reason.
     
     
       <div class="method_details first">
-  <p class="signature first" id="inspect-instance_method">
+  <p class="signature first" id="exception?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>exception?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id exception?'>exception?</span>
+  <span class='ivar'>@code</span> <span class='op'>==</span> <span class='symbol'>:exception</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="failure?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>failure?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+129
+130
+131</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 129</span>
+
+<span class='kw'>def</span> <span class='id failure?'>failure?</span>
+  <span class='ivar'>@code</span> <span class='op'>==</span> <span class='symbol'>:failure</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="inspect-instance_method">
   
     - (<tt>String</tt>) <strong>inspect</strong> 
   
@@ -1097,22 +1187,22 @@ Detailed reason for the status. Success usually has no reason.
       <pre class="lines">
 
 
+107
+108
+109
+110
+111
+112
+113
+114
+115
 116
 117
 118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128</pre>
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id inspect'>inspect</span>
   <span class='id values'>values</span>  <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>self</span><span class='period'>.</span><span class='id class'>class</span><span class='comma'>,</span> <span class='id object_id'>object_id</span><span class='op'>&gt;&gt;</span><span class='int'>1</span><span class='comma'>,</span> <span class='ivar'>@code</span><span class='comma'>,</span> <span class='ivar'>@phase</span><span class='rbracket'>]</span>
@@ -1132,12 +1222,144 @@ Detailed reason for the status. Success usually has no reason.
 </table>
 </div>
     
+      <div class="method_details ">
+  <p class="signature " id="pending?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>pending?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id pending?'>pending?</span>
+  <span class='ivar'>@code</span> <span class='op'>==</span> <span class='symbol'>:pending</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="success?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>success?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+      
+    </li>
+  
+</ul>
+<h3>Since:</h3>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>
+0.5.0
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/baretest/status.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id success?'>success?</span>
+  <span class='ivar'>@code</span> <span class='op'>==</span> <span class='symbol'>:success</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
     
     <div id="footer">
-  Generated on Sat Jan 29 19:29:07 2011 by 
+  Generated on Sun Jan 30 23:58:46 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.6.4 (ruby-1.9.2).
 </div>

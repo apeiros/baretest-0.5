@@ -1,9 +1,10 @@
 # Encoding: utf-8
-#--
+#
 # Copyright 2009-2011 by Stefan Rusterholz.
 # All rights reserved.
 # See LICENSE.txt for permissions.
-#++
+
+
 
 module BareTest
 
@@ -69,7 +70,7 @@ module BareTest
     # @return [String] The name of the file from which the code is
     attr_reader :file
 
-    # @return [String] The starting line number from which the code is
+    # @return [Integer] The starting line number from which the code is
     attr_reader :starting_line
 
     # @return [Hash]
@@ -101,6 +102,9 @@ module BareTest
     #   Options to customize the presentation of the source code.
     #   Nil doesn't change the current options.
     #   see {BareTest::CodeSource::DefaultOptions}
+    #
+    # @return [self]
+    #   Returns self.
     def options!(value)
       @options = value ? @options.merge(value) : @options.dup
       @to_s    = nil
