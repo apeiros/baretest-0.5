@@ -8,21 +8,27 @@ assert_same false, phase.returned
 assert_same nil,   phase.return_value
 assert_same nil,   phase.raised
 
-phase.execute(context)
+phase.call(context)
 assert_same :demo, phase.phase
 assert_same false, phase.returned
 assert_same nil,   phase.return_value
 assert_same BareTest::Phase::PendingNoCode, phase.raised
 
 phase = BareTest::Phase.new(:demo) do :demo_return_value end
-phase.execute(context)
+phase.call(context)
 assert_same true,               phase.returned
 assert_same :demo_return_value, phase.return_value
 assert_same nil,                phase.raised
 
+# verify that it modifies the context
+modified_context = BareTest::Context.new
+phase            = BareTest::Phase.new(:demo) do @demo_ivar = :demo_value end
+phase.call(modified_context)
+assert_same :demo_value, modified_context.instance_variable_get(:@demo_ivar)
+
 exception = RuntimeError.new "demo raise"
 phase     = BareTest::Phase.new(:demo) do raise exception; :demo_return_value end
-phase.execute(context)
+phase.call(context)
 assert_same false,      phase.returned
 assert_same nil,        phase.return_value
 assert_same exception,  phase.raised
@@ -30,7 +36,7 @@ assert_same exception,  phase.raised
 exception = Interrupt.new "demo raise"
 phase     = BareTest::Phase.new(:demo) do raise exception; :demo_return_value end
 begin
-  phase.execute(context)
+  phase.call(context)
 rescue ::Interrupt
 end
 assert_same false,      phase.returned

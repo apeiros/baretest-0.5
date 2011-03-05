@@ -32,7 +32,7 @@ module BareTest
 
     # @return [Boolean]
     #   Whether execution of the phase has returned a value
-    #   see #execute_in_context, #return_value
+    #   see #call, #return_value
     attr_reader :returned
 
     # @return [Object]
@@ -41,7 +41,7 @@ module BareTest
     #   since not returning and a return value of nil are indistinguishable
     #   otherwise.
     #
-    # see #execute_in_context, #returned
+    # see #call, #returned
     attr_reader :return_value
 
     # @return [nil, Exception]
@@ -86,7 +86,7 @@ module BareTest
     # @param [Object]
     #   The context within which to evaluate the code-block.
     # @return [self]
-    def execute(context)
+    def call(context)
       @returned = false
       if @codeblock then
         begin

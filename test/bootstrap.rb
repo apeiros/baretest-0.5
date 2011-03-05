@@ -80,6 +80,7 @@ begin
       baretest/codesource
       baretest/context
       baretest/phase
+      baretest/testbed
     ].each do |current|
       section = current
       print "Bootstrapping #{section}…"
