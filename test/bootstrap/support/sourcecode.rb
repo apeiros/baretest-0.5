@@ -18,6 +18,6 @@ module Support
   Block1Info = {
     :code => "Block1 = proc do |x|\n  x ** 2\nend",
     :line => 2,
-    :file => "/Users/Shared/Development/Gems/baretest-0.5/test/bootstrap/support/sourcecode.rb"
+    :file => File.expand_path(__FILE__)
   }
 end
