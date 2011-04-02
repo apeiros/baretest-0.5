@@ -19,8 +19,10 @@ module BareTest
   # @topic    Phases
   # @abstract
   #
-  # Baseclass that encapsulates the single phases in a test.
+  # Baseclass that encapsulates the phases in a test.
   # A test consists of the four phases setup, exercise, verify and teardown.
+  # But a test can have multiple setup routines, and multiple teardown routines. Each
+  # will be encapsulated in a Phase instance.
   class Phase
     class StatusException < StandardError; end
     class Pending < StatusException; end
@@ -34,6 +36,7 @@ module BareTest
     #   Whether execution of the phase has returned a value
     #   see #call, #return_value
     attr_reader :returned
+    alias returned? returned
 
     # @return [Object]
     #   The value the execution of the phase has returned
@@ -87,23 +90,22 @@ module BareTest
     #   The context within which to evaluate the code-block.
     # @return [self]
     def call(context)
-      @returned = false
+      @returned     = false
+      @return_value = nil
+      @raised       = nil
+
       if @codeblock then
         begin
           @return_value = context.instance_eval(&@codeblock)
           @returned     = true
-          @raised       = nil
         rescue *BareTest::PassthroughExceptions => exception
-          @return_value = nil
-          @raised       = exception
-          raise
+          @raised = exception
+          raise # reraise passthrough exceptions, we don't handle them
         rescue Exception => exception
-          @return_value = nil
-          @raised       = exception
+          @raised = exception
         end
       else # no code means pending
-        @return_value = nil
-        @raised       = PendingNoCode
+        @raised = PendingNoCode
       end
 
       self

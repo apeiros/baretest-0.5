@@ -15,6 +15,8 @@ BOOTSTRAP_FILES = %w[
   baretest/codesource
   baretest/context
   baretest/phase
+  baretest/phase/setup
+  baretest/phase/teardown
   baretest/testbed
 ]
 
@@ -99,6 +101,8 @@ begin
     # baretest/phase
     # baretest/phase/exercise
 
+    old_verbose = $VERBOSE
+    $VERBOSE    = true
     BOOTSTRAP_FILES.each do |current|
       section = current
       print "Bootstrapping #{section}…"
@@ -107,6 +111,8 @@ begin
     end
   rescue Exception => e
     rescued = e
+  ensure
+    $VERBOSE = old_verbose
   end
 
   $stdout = StringIO.new
