@@ -6,8 +6,33 @@
 # ABOUT THIS FILE
 # bootstrap.rb runs the bootstrap tests for baretest.
 
+
+# Modify this constant to add files to be run during bootstrapping. They are run in the order
+# as given.
+BOOTSTRAP_FILES = %w[
+  baretest/status
+  baretest/statuscollection
+  baretest/codesource
+  baretest/context
+  baretest/phase
+  baretest/testbed
+]
+
+
 require 'stringio'
 
+unless $0 == 'test/bootstrap.rb' then
+  puts "\e[43;1m WARNING \e[0;43m This file should be run by `ruby test/bootstrap.rb`, but" \
+       " doesn't seem ",
+       "          to be                                                                 "
+end
+
+# FIXME, patching around stupidly broken simplecov-html
+$" << 'bundler'
+module Bundler
+  def self.setup(*);end
+end
+# /FIXME
 
 
 section = "__initialize__"
@@ -74,14 +99,7 @@ begin
     # baretest/phase
     # baretest/phase/exercise
 
-    %w[
-      baretest/status
-      baretest/statuscollection
-      baretest/codesource
-      baretest/context
-      baretest/phase
-      baretest/testbed
-    ].each do |current|
+    BOOTSTRAP_FILES.each do |current|
       section = current
       print "Bootstrapping #{section}…"
       load(File.join(Bootstrap[:bootstrap], section+".rb"))
