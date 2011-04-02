@@ -21,7 +21,7 @@
       <img src="./assets/0.4.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-02T17:20:07+02:00">2011-04-02T17:20:07+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-04-02T18:27:38+02:00">2011-04-02T18:27:38+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -32,9 +32,9 @@
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>6</b> files in total.
-    <b>147</b> relevant lines. 
-    <span class="green"><b>147</b> lines covered</span> and
+    <b>9</b> files in total.
+    <b>172</b> relevant lines. 
+    <span class="green"><b>172</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -81,8 +81,26 @@
         <td><a href="#69a869c80900c96bdd742ec00bfaeb4c3fa49ac9" class="src_link" title="./lib/baretest/phase.rb">./lib/baretest/phase.rb</a></td>
         <td class="green">100.0 %</td>
         <td>114</td>
-        <td>37</td>
-        <td>37</td>
+        <td>36</td>
+        <td>36</td>
+        <td>0</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#d277b85db34c3b0bff98674183daa21b13236d83" class="src_link" title="./lib/baretest/phase/setup.rb">./lib/baretest/phase/setup.rb</a></td>
+        <td class="green">100.0 %</td>
+        <td>28</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#ecd4ce6e5d298d66194c109b28dc3dbc0d540030" class="src_link" title="./lib/baretest/phase/teardown.rb">./lib/baretest/phase/teardown.rb</a></td>
+        <td class="green">100.0 %</td>
+        <td>29</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
       </tr>
       
@@ -101,6 +119,15 @@
         <td>73</td>
         <td>18</td>
         <td>18</td>
+        <td>0</td>
+      </tr>
+      
+      <tr>
+        <td><a href="#2205c733969f45d05ac846212d5ae98267870684" class="src_link" title="./lib/baretest/testbed.rb">./lib/baretest/testbed.rb</a></td>
+        <td class="green">100.0 %</td>
+        <td>40</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
       </tr>
       
@@ -990,7 +1017,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>40</pre>
       </td>
@@ -998,12 +1025,12 @@
         <pre>      file, line = *proc_instance.source_location</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>41</pre>
       </td>
@@ -1011,7 +1038,7 @@
         <pre>      new source_from_file_and_line(file, line),</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
@@ -1133,7 +1160,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>51</pre>
       </td>
@@ -1141,7 +1168,7 @@
         <pre>      if file == &quot;(irb)&quot; then # irb special case</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
@@ -1211,7 +1238,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="3">
+    <tr class="hit" data-hits="7">
       <td class="line_number">
         <pre>57</pre>
       </td>
@@ -1219,7 +1246,7 @@
         <pre>        lines  = File.readlines(file)</pre>
       </td>
       <td class="hits">
-        3
+        7
       </td>
     </tr>
   
@@ -1237,7 +1264,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>59</pre>
       </td>
@@ -1245,12 +1272,12 @@
         <pre>      string = lines[(from_line-1)..-1].join(&quot;&quot;).sub(/[\r\n]*\z/, '')</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>60</pre>
       </td>
@@ -1258,12 +1285,12 @@
         <pre>      string.gsub!(/^\t+/) { |m| &quot;  &quot;*m.size }</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>61</pre>
       </td>
@@ -1271,12 +1298,12 @@
         <pre>      indent = string[/^ */]</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>62</pre>
       </td>
@@ -1284,12 +1311,12 @@
         <pre>      string.gsub!(/^ {0,#{indent.size-1}}[^ ].*\z/m, '') # drop everything that is less indented</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>63</pre>
       </td>
@@ -1297,12 +1324,12 @@
         <pre>      string.gsub!(/^#{indent}/, '') # unindent</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="8">
       <td class="line_number">
         <pre>64</pre>
       </td>
@@ -1310,7 +1337,7 @@
         <pre>      string</pre>
       </td>
       <td class="hits">
-        4
+        8
       </td>
     </tr>
   
@@ -1679,7 +1706,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="9">
       <td class="line_number">
         <pre>93</pre>
       </td>
@@ -1687,12 +1714,12 @@
         <pre>      @code          = code</pre>
       </td>
       <td class="hits">
-        5
+        9
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="9">
       <td class="line_number">
         <pre>94</pre>
       </td>
@@ -1700,12 +1727,12 @@
         <pre>      @file          = file_name</pre>
       </td>
       <td class="hits">
-        5
+        9
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="9">
       <td class="line_number">
         <pre>95</pre>
       </td>
@@ -1713,12 +1740,12 @@
         <pre>      @starting_line = starting_line</pre>
       </td>
       <td class="hits">
-        5
+        9
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="9">
       <td class="line_number">
         <pre>96</pre>
       </td>
@@ -1726,12 +1753,12 @@
         <pre>      @options       = DefaultOptions</pre>
       </td>
       <td class="hits">
-        5
+        9
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="9">
       <td class="line_number">
         <pre>97</pre>
       </td>
@@ -1739,7 +1766,7 @@
         <pre>      options!(options)</pre>
       </td>
       <td class="hits">
-        5
+        9
       </td>
     </tr>
   
@@ -1887,7 +1914,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>109</pre>
       </td>
@@ -1895,12 +1922,12 @@
         <pre>      @options = value ? @options.merge(value) : @options.dup</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>110</pre>
       </td>
@@ -1908,12 +1935,12 @@
         <pre>      @to_s    = nil</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>111</pre>
       </td>
@@ -1921,12 +1948,12 @@
         <pre>      highlight            = @options[:highlight]</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>112</pre>
       </td>
@@ -1934,12 +1961,12 @@
         <pre>      @options[:highlight] = case highlight</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="9">
       <td class="line_number">
         <pre>113</pre>
       </td>
@@ -1947,7 +1974,7 @@
         <pre>        when nil then []</pre>
       </td>
       <td class="hits">
-        5
+        9
       </td>
     </tr>
   
@@ -2004,7 +2031,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>118</pre>
       </td>
@@ -2012,7 +2039,7 @@
         <pre>      @options.freeze</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
@@ -2030,7 +2057,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="8">
+    <tr class="hit" data-hits="12">
       <td class="line_number">
         <pre>120</pre>
       </td>
@@ -2038,7 +2065,7 @@
         <pre>      self</pre>
       </td>
       <td class="hits">
-        8
+        12
       </td>
     </tr>
   
@@ -3255,15 +3282,15 @@
     </tr>
   
     
-    <tr class="never" >
+    <tr class="hit" data-hits="1">
       <td class="line_number">
         <pre>39</pre>
       </td>
       <td>
-        <pre></pre>
+        <pre>    alias returned? returned</pre>
       </td>
       <td class="hits">
-        
+        1
       </td>
     </tr>
   
@@ -3273,7 +3300,7 @@
         <pre>40</pre>
       </td>
       <td>
-        <pre>    # @return [Object]</pre>
+        <pre></pre>
       </td>
       <td class="hits">
         
@@ -3286,7 +3313,7 @@
         <pre>41</pre>
       </td>
       <td>
-        <pre>    #   The value the execution of the phase has returned</pre>
+        <pre>    # @return [Object]</pre>
       </td>
       <td class="hits">
         
@@ -3299,7 +3326,7 @@
         <pre>42</pre>
       </td>
       <td>
-        <pre>    #   Make sure to check whether the execution has returned at all first,</pre>
+        <pre>    #   The value the execution of the phase has returned</pre>
       </td>
       <td class="hits">
         
@@ -3312,7 +3339,7 @@
         <pre>43</pre>
       </td>
       <td>
-        <pre>    #   since not returning and a return value of nil are indistinguishable</pre>
+        <pre>    #   Make sure to check whether the execution has returned at all first,</pre>
       </td>
       <td class="hits">
         
@@ -3325,7 +3352,7 @@
         <pre>44</pre>
       </td>
       <td>
-        <pre>    #   otherwise.</pre>
+        <pre>    #   since not returning and a return value of nil are indistinguishable</pre>
       </td>
       <td class="hits">
         
@@ -3338,7 +3365,7 @@
         <pre>45</pre>
       </td>
       <td>
-        <pre>    #</pre>
+        <pre>    #   otherwise.</pre>
       </td>
       <td class="hits">
         
@@ -3351,6 +3378,19 @@
         <pre>46</pre>
       </td>
       <td>
+        <pre>    #</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>47</pre>
+      </td>
+      <td>
         <pre>    # see #call, #returned</pre>
       </td>
       <td class="hits">
@@ -3361,7 +3401,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>47</pre>
+        <pre>48</pre>
       </td>
       <td>
         <pre>    attr_reader :return_value</pre>
@@ -3374,23 +3414,10 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>48</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
         <pre>49</pre>
       </td>
       <td>
-        <pre>    # @return [nil, Exception]</pre>
+        <pre></pre>
       </td>
       <td class="hits">
         
@@ -3403,7 +3430,7 @@
         <pre>50</pre>
       </td>
       <td>
-        <pre>    #   In case the execution of the phase raised an exception, the exception</pre>
+        <pre>    # @return [nil, Exception]</pre>
       </td>
       <td class="hits">
         
@@ -3416,6 +3443,19 @@
         <pre>51</pre>
       </td>
       <td>
+        <pre>    #   In case the execution of the phase raised an exception, the exception</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>52</pre>
+      </td>
+      <td>
         <pre>    #   object is stored here.</pre>
       </td>
       <td class="hits">
@@ -3426,7 +3466,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>52</pre>
+        <pre>53</pre>
       </td>
       <td>
         <pre>    attr_reader :raised</pre>
@@ -3439,23 +3479,10 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>53</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
         <pre>54</pre>
       </td>
       <td>
-        <pre>    # @return [Symbol]</pre>
+        <pre></pre>
       </td>
       <td class="hits">
         
@@ -3468,7 +3495,7 @@
         <pre>55</pre>
       </td>
       <td>
-        <pre>    #   The phase identifier of this Phase instance.</pre>
+        <pre>    # @return [Symbol]</pre>
       </td>
       <td class="hits">
         
@@ -3481,7 +3508,7 @@
         <pre>56</pre>
       </td>
       <td>
-        <pre>    #   Should be one of</pre>
+        <pre>    #   The phase identifier of this Phase instance.</pre>
       </td>
       <td class="hits">
         
@@ -3494,7 +3521,7 @@
         <pre>57</pre>
       </td>
       <td>
-        <pre>    #   * :initialization</pre>
+        <pre>    #   Should be one of</pre>
       </td>
       <td class="hits">
         
@@ -3507,7 +3534,7 @@
         <pre>58</pre>
       </td>
       <td>
-        <pre>    #   * :setup</pre>
+        <pre>    #   * :initialization</pre>
       </td>
       <td class="hits">
         
@@ -3520,7 +3547,7 @@
         <pre>59</pre>
       </td>
       <td>
-        <pre>    #   * :exercise</pre>
+        <pre>    #   * :setup</pre>
       </td>
       <td class="hits">
         
@@ -3533,7 +3560,7 @@
         <pre>60</pre>
       </td>
       <td>
-        <pre>    #   * :verify</pre>
+        <pre>    #   * :exercise</pre>
       </td>
       <td class="hits">
         
@@ -3546,7 +3573,7 @@
         <pre>61</pre>
       </td>
       <td>
-        <pre>    #   * :teardown</pre>
+        <pre>    #   * :verify</pre>
       </td>
       <td class="hits">
         
@@ -3559,6 +3586,19 @@
         <pre>62</pre>
       </td>
       <td>
+        <pre>    #   * :teardown</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>63</pre>
+      </td>
+      <td>
         <pre>    #   * :cleanup</pre>
       </td>
       <td class="hits">
@@ -3569,7 +3609,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>63</pre>
+        <pre>64</pre>
       </td>
       <td>
         <pre>    attr_reader :phase</pre>
@@ -3582,23 +3622,10 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>64</pre>
-      </td>
-      <td>
-        <pre></pre>
-      </td>
-      <td class="hits">
-        
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
         <pre>65</pre>
       </td>
       <td>
-        <pre>    # @param [Symbol] phase</pre>
+        <pre></pre>
       </td>
       <td class="hits">
         
@@ -3611,7 +3638,7 @@
         <pre>66</pre>
       </td>
       <td>
-        <pre>    #   The phase identifier of this Phase instance.</pre>
+        <pre>    # @param [Symbol] phase</pre>
       </td>
       <td class="hits">
         
@@ -3624,7 +3651,7 @@
         <pre>67</pre>
       </td>
       <td>
-        <pre>    #   Should be one of</pre>
+        <pre>    #   The phase identifier of this Phase instance.</pre>
       </td>
       <td class="hits">
         
@@ -3637,7 +3664,7 @@
         <pre>68</pre>
       </td>
       <td>
-        <pre>    #   * :initialization</pre>
+        <pre>    #   Should be one of</pre>
       </td>
       <td class="hits">
         
@@ -3650,7 +3677,7 @@
         <pre>69</pre>
       </td>
       <td>
-        <pre>    #   * :setup</pre>
+        <pre>    #   * :initialization</pre>
       </td>
       <td class="hits">
         
@@ -3663,7 +3690,7 @@
         <pre>70</pre>
       </td>
       <td>
-        <pre>    #   * :exercise</pre>
+        <pre>    #   * :setup</pre>
       </td>
       <td class="hits">
         
@@ -3676,7 +3703,7 @@
         <pre>71</pre>
       </td>
       <td>
-        <pre>    #   * :verify</pre>
+        <pre>    #   * :exercise</pre>
       </td>
       <td class="hits">
         
@@ -3689,7 +3716,7 @@
         <pre>72</pre>
       </td>
       <td>
-        <pre>    #   * :teardown</pre>
+        <pre>    #   * :verify</pre>
       </td>
       <td class="hits">
         
@@ -3702,6 +3729,19 @@
         <pre>73</pre>
       </td>
       <td>
+        <pre>    #   * :teardown</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>74</pre>
+      </td>
+      <td>
         <pre>    #   * :cleanup</pre>
       </td>
       <td class="hits">
@@ -3712,7 +3752,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>74</pre>
+        <pre>75</pre>
       </td>
       <td>
         <pre>    def initialize(phase, &amp;codeblock)</pre>
@@ -3723,80 +3763,67 @@
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="30">
       <td class="line_number">
-        <pre>75</pre>
+        <pre>76</pre>
       </td>
       <td>
         <pre>      @codeblock    = codeblock</pre>
       </td>
       <td class="hits">
-        6
+        30
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="30">
       <td class="line_number">
-        <pre>76</pre>
+        <pre>77</pre>
       </td>
       <td>
         <pre>      @returned     = false</pre>
       </td>
       <td class="hits">
-        6
+        30
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="30">
       <td class="line_number">
-        <pre>77</pre>
+        <pre>78</pre>
       </td>
       <td>
         <pre>      @return_value = nil</pre>
       </td>
       <td class="hits">
-        6
+        30
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="30">
       <td class="line_number">
-        <pre>78</pre>
+        <pre>79</pre>
       </td>
       <td>
         <pre>      @raised       = nil</pre>
       </td>
       <td class="hits">
-        6
+        30
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="6">
+    <tr class="hit" data-hits="30">
       <td class="line_number">
-        <pre>79</pre>
+        <pre>80</pre>
       </td>
       <td>
         <pre>      @phase        = phase</pre>
       </td>
       <td class="hits">
-        6
-      </td>
-    </tr>
-  
-    
-    <tr class="never" >
-      <td class="line_number">
-        <pre>80</pre>
-      </td>
-      <td>
-        <pre>    end</pre>
-      </td>
-      <td class="hits">
-        
+        30
       </td>
     </tr>
   
@@ -3806,7 +3833,7 @@
         <pre>81</pre>
       </td>
       <td>
-        <pre></pre>
+        <pre>    end</pre>
       </td>
       <td class="hits">
         
@@ -3819,7 +3846,7 @@
         <pre>82</pre>
       </td>
       <td>
-        <pre>    # @return [BareTest::CodeSource]</pre>
+        <pre></pre>
       </td>
       <td class="hits">
         
@@ -3832,6 +3859,19 @@
         <pre>83</pre>
       </td>
       <td>
+        <pre>    # @return [BareTest::CodeSource]</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>84</pre>
+      </td>
+      <td>
         <pre>    #   Returns the code of this Phase as CodeSource instance.</pre>
       </td>
       <td class="hits">
@@ -3842,7 +3882,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>84</pre>
+        <pre>85</pre>
       </td>
       <td>
         <pre>    def codesource</pre>
@@ -3853,22 +3893,22 @@
     </tr>
   
     
-    <tr class="hit" data-hits="2">
+    <tr class="hit" data-hits="6">
       <td class="line_number">
-        <pre>85</pre>
+        <pre>86</pre>
       </td>
       <td>
         <pre>      CodeSource.from(@codeblock)</pre>
       </td>
       <td class="hits">
-        2
+        6
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>86</pre>
+        <pre>87</pre>
       </td>
       <td>
         <pre>    end</pre>
@@ -3881,7 +3921,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>87</pre>
+        <pre>88</pre>
       </td>
       <td>
         <pre></pre>
@@ -3894,7 +3934,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>88</pre>
+        <pre>89</pre>
       </td>
       <td>
         <pre>    # @param [Object]</pre>
@@ -3907,7 +3947,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>89</pre>
+        <pre>90</pre>
       </td>
       <td>
         <pre>    #   The context within which to evaluate the code-block.</pre>
@@ -3920,7 +3960,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>90</pre>
+        <pre>91</pre>
       </td>
       <td>
         <pre>    # @return [self]</pre>
@@ -3933,7 +3973,7 @@
     
     <tr class="hit" data-hits="1">
       <td class="line_number">
-        <pre>91</pre>
+        <pre>92</pre>
       </td>
       <td>
         <pre>    def call(context)</pre>
@@ -3944,87 +3984,113 @@
     </tr>
   
     
-    <tr class="hit" data-hits="5">
-      <td class="line_number">
-        <pre>92</pre>
-      </td>
-      <td>
-        <pre>      @returned = false</pre>
-      </td>
-      <td class="hits">
-        5
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="5">
+    <tr class="hit" data-hits="27">
       <td class="line_number">
         <pre>93</pre>
       </td>
       <td>
-        <pre>      if @codeblock then</pre>
+        <pre>      @returned     = false</pre>
       </td>
       <td class="hits">
-        5
+        27
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="27">
       <td class="line_number">
         <pre>94</pre>
       </td>
       <td>
-        <pre>        begin</pre>
+        <pre>      @return_value = nil</pre>
       </td>
       <td class="hits">
-        4
+        27
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="27">
       <td class="line_number">
         <pre>95</pre>
       </td>
       <td>
-        <pre>          @return_value = context.instance_eval(&amp;@codeblock)</pre>
+        <pre>      @raised       = nil</pre>
       </td>
       <td class="hits">
-        4
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="2">
-      <td class="line_number">
-        <pre>96</pre>
-      </td>
-      <td>
-        <pre>          @returned     = true</pre>
-      </td>
-      <td class="hits">
-        2
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="2">
-      <td class="line_number">
-        <pre>97</pre>
-      </td>
-      <td>
-        <pre>          @raised       = nil</pre>
-      </td>
-      <td class="hits">
-        2
+        27
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
+        <pre>96</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="27">
+      <td class="line_number">
+        <pre>97</pre>
+      </td>
+      <td>
+        <pre>      if @codeblock then</pre>
+      </td>
+      <td class="hits">
+        27
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="24">
+      <td class="line_number">
         <pre>98</pre>
+      </td>
+      <td>
+        <pre>        begin</pre>
+      </td>
+      <td class="hits">
+        24
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="24">
+      <td class="line_number">
+        <pre>99</pre>
+      </td>
+      <td>
+        <pre>          @return_value = context.instance_eval(&amp;@codeblock)</pre>
+      </td>
+      <td class="hits">
+        24
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="18">
+      <td class="line_number">
+        <pre>100</pre>
+      </td>
+      <td>
+        <pre>          @returned     = true</pre>
+      </td>
+      <td class="hits">
+        18
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>101</pre>
       </td>
       <td>
         <pre>        rescue *BareTest::PassthroughExceptions =&gt; exception</pre>
@@ -4035,48 +4101,35 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>99</pre>
+        <pre>102</pre>
       </td>
       <td>
-        <pre>          @return_value = nil</pre>
+        <pre>          @raised = exception</pre>
       </td>
       <td class="hits">
-        1
+        3
       </td>
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>100</pre>
+        <pre>103</pre>
       </td>
       <td>
-        <pre>          @raised       = exception</pre>
+        <pre>          raise # reraise passthrough exceptions, we don't handle them</pre>
       </td>
       <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>101</pre>
-      </td>
-      <td>
-        <pre>          raise</pre>
-      </td>
-      <td class="hits">
-        1
+        3
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>102</pre>
+        <pre>104</pre>
       </td>
       <td>
         <pre>        rescue Exception =&gt; exception</pre>
@@ -4087,35 +4140,22 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="3">
       <td class="line_number">
-        <pre>103</pre>
+        <pre>105</pre>
       </td>
       <td>
-        <pre>          @return_value = nil</pre>
+        <pre>          @raised = exception</pre>
       </td>
       <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>104</pre>
-      </td>
-      <td>
-        <pre>          @raised       = exception</pre>
-      </td>
-      <td class="hits">
-        1
+        3
       </td>
     </tr>
   
     
     <tr class="never" >
       <td class="line_number">
-        <pre>105</pre>
+        <pre>106</pre>
       </td>
       <td>
         <pre>        end</pre>
@@ -4128,7 +4168,7 @@
     
     <tr class="never" >
       <td class="line_number">
-        <pre>106</pre>
+        <pre>107</pre>
       </td>
       <td>
         <pre>      else # no code means pending</pre>
@@ -4139,28 +4179,15 @@
     </tr>
   
     
-    <tr class="hit" data-hits="1">
-      <td class="line_number">
-        <pre>107</pre>
-      </td>
-      <td>
-        <pre>        @return_value = nil</pre>
-      </td>
-      <td class="hits">
-        1
-      </td>
-    </tr>
-  
-    
-    <tr class="hit" data-hits="1">
+    <tr class="hit" data-hits="3">
       <td class="line_number">
         <pre>108</pre>
       </td>
       <td>
-        <pre>        @raised       = PendingNoCode</pre>
+        <pre>        @raised = PendingNoCode</pre>
       </td>
       <td class="hits">
-        1
+        3
       </td>
     </tr>
   
@@ -4191,7 +4218,7 @@
     </tr>
   
     
-    <tr class="hit" data-hits="4">
+    <tr class="hit" data-hits="24">
       <td class="line_number">
         <pre>111</pre>
       </td>
@@ -4199,7 +4226,7 @@
         <pre>      self</pre>
       </td>
       <td class="hits">
-        4
+        24
       </td>
     </tr>
   
@@ -4233,6 +4260,789 @@
     <tr class="never" >
       <td class="line_number">
         <pre>114</pre>
+      </td>
+      <td>
+        <pre>end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    </tbody>
+  </table>
+</div>
+      
+        <div class="source_table" id="d277b85db34c3b0bff98674183daa21b13236d83">
+  <table>
+    <thead>
+    <tr>
+      <td colspan="3">
+        <h3>./lib/baretest/phase/setup.rb</h3>
+        <h4><span class="green">100.0 %</span> covered</h4>
+      </td>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Hits</th>
+    </tr>
+    </thead>
+    <tbody>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>1</pre>
+      </td>
+      <td>
+        <pre># Encoding: utf-8</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>2</pre>
+      </td>
+      <td>
+        <pre>#</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>3</pre>
+      </td>
+      <td>
+        <pre># Copyright 2009-2011 by Stefan Rusterholz.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>4</pre>
+      </td>
+      <td>
+        <pre># All rights reserved.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>5</pre>
+      </td>
+      <td>
+        <pre># See LICENSE.txt for permissions.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>6</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>7</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>8</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>9</pre>
+      </td>
+      <td>
+        <pre>require 'baretest/phase'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>10</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>11</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>12</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>13</pre>
+      </td>
+      <td>
+        <pre>module BareTest</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>14</pre>
+      </td>
+      <td>
+        <pre>  class Phase</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>15</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>16</pre>
+      </td>
+      <td>
+        <pre>    # @author   Stefan Rusterholz &lt;contact@apeiros.me&gt;</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>17</pre>
+      </td>
+      <td>
+        <pre>    # @since    0.5.0</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>18</pre>
+      </td>
+      <td>
+        <pre>    # @topic    Phases</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>19</pre>
+      </td>
+      <td>
+        <pre>    #</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>20</pre>
+      </td>
+      <td>
+        <pre>    # Phases that are executed in order to set the context up.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>21</pre>
+      </td>
+      <td>
+        <pre>    # Setup phases are hold by the TestBed class.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>22</pre>
+      </td>
+      <td>
+        <pre>    class Setup &lt; Phase</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>23</pre>
+      </td>
+      <td>
+        <pre>      def initialize(&amp;block)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="12">
+      <td class="line_number">
+        <pre>24</pre>
+      </td>
+      <td>
+        <pre>        super(:setup, &amp;block)</pre>
+      </td>
+      <td class="hits">
+        12
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>25</pre>
+      </td>
+      <td>
+        <pre>      end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>26</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>27</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>28</pre>
+      </td>
+      <td>
+        <pre>end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    </tbody>
+  </table>
+</div>
+      
+        <div class="source_table" id="ecd4ce6e5d298d66194c109b28dc3dbc0d540030">
+  <table>
+    <thead>
+    <tr>
+      <td colspan="3">
+        <h3>./lib/baretest/phase/teardown.rb</h3>
+        <h4><span class="green">100.0 %</span> covered</h4>
+      </td>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Hits</th>
+    </tr>
+    </thead>
+    <tbody>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>1</pre>
+      </td>
+      <td>
+        <pre># Encoding: utf-8</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>2</pre>
+      </td>
+      <td>
+        <pre>#</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>3</pre>
+      </td>
+      <td>
+        <pre># Copyright 2009-2011 by Stefan Rusterholz.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>4</pre>
+      </td>
+      <td>
+        <pre># All rights reserved.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>5</pre>
+      </td>
+      <td>
+        <pre># See LICENSE.txt for permissions.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>6</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>7</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>8</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>9</pre>
+      </td>
+      <td>
+        <pre>require 'baretest/phase'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>10</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>11</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>12</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>13</pre>
+      </td>
+      <td>
+        <pre>module BareTest</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>14</pre>
+      </td>
+      <td>
+        <pre>  class Phase</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>15</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>16</pre>
+      </td>
+      <td>
+        <pre>    # @author   Stefan Rusterholz &lt;contact@apeiros.me&gt;</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>17</pre>
+      </td>
+      <td>
+        <pre>    # @since    0.5.0</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>18</pre>
+      </td>
+      <td>
+        <pre>    # @topic    Phases</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>19</pre>
+      </td>
+      <td>
+        <pre>    #</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>20</pre>
+      </td>
+      <td>
+        <pre>    # Phases that are executed in order to tear down a context after exercise and verification</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>21</pre>
+      </td>
+      <td>
+        <pre>    # have been run.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>22</pre>
+      </td>
+      <td>
+        <pre>    # Teardown phases are hold by the TestBed class.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>23</pre>
+      </td>
+      <td>
+        <pre>    class Teardown &lt; Phase</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>24</pre>
+      </td>
+      <td>
+        <pre>      def initialize(&amp;block)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="12">
+      <td class="line_number">
+        <pre>25</pre>
+      </td>
+      <td>
+        <pre>        super(:teardown, &amp;block)</pre>
+      </td>
+      <td class="hits">
+        12
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>26</pre>
+      </td>
+      <td>
+        <pre>      end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>27</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>28</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>29</pre>
       </td>
       <td>
         <pre>end</pre>
@@ -7008,6 +7818,547 @@
       </td>
       <td>
         <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    </tbody>
+  </table>
+</div>
+      
+        <div class="source_table" id="2205c733969f45d05ac846212d5ae98267870684">
+  <table>
+    <thead>
+    <tr>
+      <td colspan="3">
+        <h3>./lib/baretest/testbed.rb</h3>
+        <h4><span class="green">100.0 %</span> covered</h4>
+      </td>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Hits</th>
+    </tr>
+    </thead>
+    <tbody>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>1</pre>
+      </td>
+      <td>
+        <pre># Encoding: utf-8</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>2</pre>
+      </td>
+      <td>
+        <pre>#</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>3</pre>
+      </td>
+      <td>
+        <pre># Copyright 2009-2011 by Stefan Rusterholz.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>4</pre>
+      </td>
+      <td>
+        <pre># All rights reserved.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>5</pre>
+      </td>
+      <td>
+        <pre># See LICENSE.txt for permissions.</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>6</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>7</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>8</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>9</pre>
+      </td>
+      <td>
+        <pre>require 'baretest/phase/setup'</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>10</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>11</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>12</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>13</pre>
+      </td>
+      <td>
+        <pre>module BareTest</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>14</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>15</pre>
+      </td>
+      <td>
+        <pre>  # @author   Stefan Rusterholz &lt;contact@apeiros.me&gt;</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>16</pre>
+      </td>
+      <td>
+        <pre>  # @since    0.5.0</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>17</pre>
+      </td>
+      <td>
+        <pre>  # @topic    ?</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>18</pre>
+      </td>
+      <td>
+        <pre>  #</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>19</pre>
+      </td>
+      <td>
+        <pre>  # </pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>20</pre>
+      </td>
+      <td>
+        <pre>  class TestBed</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>21</pre>
+      </td>
+      <td>
+        <pre>    def initialize</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>22</pre>
+      </td>
+      <td>
+        <pre>      @setups     = []</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>23</pre>
+      </td>
+      <td>
+        <pre>      @teardowns  = []</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>24</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>25</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>26</pre>
+      </td>
+      <td>
+        <pre>    def define_setup(&amp;block)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>27</pre>
+      </td>
+      <td>
+        <pre>      @setups &lt;&lt; Phase::Setup.new(&amp;block)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>28</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>29</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>30</pre>
+      </td>
+      <td>
+        <pre>    def define_teardown(&amp;block)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>31</pre>
+      </td>
+      <td>
+        <pre>      @teardowns &lt;&lt; Phase::Teardown.new(&amp;block)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>32</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>33</pre>
+      </td>
+      <td>
+        <pre></pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="1">
+      <td class="line_number">
+        <pre>34</pre>
+      </td>
+      <td>
+        <pre>    def call(context)</pre>
+      </td>
+      <td class="hits">
+        1
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="12">
+      <td class="line_number">
+        <pre>35</pre>
+      </td>
+      <td>
+        <pre>      @setups.each do |setup| setup.call(context) end</pre>
+      </td>
+      <td class="hits">
+        12
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="6">
+      <td class="line_number">
+        <pre>36</pre>
+      </td>
+      <td>
+        <pre>      yield(context)</pre>
+      </td>
+      <td class="hits">
+        6
+      </td>
+    </tr>
+  
+    
+    <tr class="hit" data-hits="12">
+      <td class="line_number">
+        <pre>37</pre>
+      </td>
+      <td>
+        <pre>      @teardowns.each do |teardown| teardown.call(context) end</pre>
+      </td>
+      <td class="hits">
+        12
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>38</pre>
+      </td>
+      <td>
+        <pre>    end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>39</pre>
+      </td>
+      <td>
+        <pre>  end</pre>
+      </td>
+      <td class="hits">
+        
+      </td>
+    </tr>
+  
+    
+    <tr class="never" >
+      <td class="line_number">
+        <pre>40</pre>
+      </td>
+      <td>
+        <pre>end</pre>
       </td>
       <td class="hits">
         
